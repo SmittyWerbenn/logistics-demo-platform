@@ -1,6 +1,6 @@
 # GMS Demo — Panduan Menjalankan & Presentasi
 
-**Live demo:** https://smittywerbenn.github.io/logistics-demo-platform/
+**Live demo:** https://logistics-demo.frel.cloud/
 
 Demo statis GMS Logistics. **Tanpa backend, tanpa database server** — seluruh
 logika API GMS (RBAC, validasi, nomor AWB, audit log) dijalankan di browser
