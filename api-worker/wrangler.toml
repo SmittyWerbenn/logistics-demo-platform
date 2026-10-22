@@ -1,0 +1,31 @@
+# GMS Demo clone - LOCAL ONLY.
+# This worker is meant to run with `wrangler dev` against a local D1 database
+# (see README-DEMO.md). Do not deploy it: DEMO_MODE stores uploads in D1 and
+# the seed data is fictional.
+name = "gms-demo-api"
+main = "src/index.ts"
+compatibility_date = "2026-09-11"
+compatibility_flags = ["nodejs_compat"]
+
+[dev]
+# 8787 is used by other local workers; keep the demo on its own port.
+port = 8788
+
+[vars]
+# Frontend dev server for this clone (real GMS uses 5183).
+ALLOWED_ORIGINS = "http://localhost:5184,http://127.0.0.1:5184"
+SESSION_TTL_HOURS = "24"
+# Demo mode: file uploads are stored in the local D1 `demo_files` table instead
+# of MinIO, so the whole demo runs without Docker or cloud credentials.
+DEMO_MODE = "true"
+# Not used locally (daily report scheduler is disabled), kept so the worker's
+# Env type stays satisfied.
+EMAIL_API_URL = ""
+REPORT_API_TOKEN = ""
+DAILY_REPORT_ENABLED = "false"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gms-demo-db"
+# Placeholder - local state lives in .wrangler/state and never reaches Cloudflare.
+database_id = "00000000-0000-0000-0000-000000000000"

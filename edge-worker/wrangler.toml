@@ -1,0 +1,9 @@
+name = "gms-edge"
+main = "src/index.ts"
+compatibility_date = "2026-09-11"
+account_id = "aea7460c185f9ed038f60167b730c47b"
+workers_dev = false
+
+# Hostnames are attached via the Workers Custom Domains API (the account API
+# token can manage custom domains but not legacy zone "routes"), so this file
+# intentionally carries no [routes] block.

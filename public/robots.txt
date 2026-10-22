@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /driver
+
+# Per-shipment tracking results (/tracking/<awb>) are kept crawlable but use
+# a noindex,follow meta tag (see src/utils/seo.ts) rather than being
+# disallowed here - a page you want excluded from search results should
+# stay crawlable so Google can see that noindex tag, per Google's own
+# guidance; Disallow only stops crawling, not indexing/listing of a URL
+# that got linked to from elsewhere.
+
+Sitemap: https://gms-logistics.id/sitemap.xml

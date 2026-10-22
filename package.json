@@ -1,0 +1,43 @@
+{
+  "name": "gms-demo-platform",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5184",
+    "demo": "vite --port 5184",
+    "demo:seed": "node api-worker/scripts/generate-demo-seed.mjs",
+    "build": "tsc -b && vite build",
+    "build:pages": "tsc -b && vite build && cp dist/index.html dist/404.html",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@zxing/browser": "^0.2.1",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "lucide-react": "^1.45.0",
+    "nodemailer": "^10.0.6",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.3",
+    "read-excel-file": "^9.3.10",
+    "sql.js": "^1.15.1",
+    "write-excel-file": "^4.1.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260911.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/nodemailer": "^8.0.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/sql.js": "^1.4.11",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

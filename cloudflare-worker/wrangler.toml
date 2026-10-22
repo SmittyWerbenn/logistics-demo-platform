@@ -1,0 +1,21 @@
+name = "gms-email-api"
+main = "src/index.ts"
+compatibility_date = "2026-09-11"
+compatibility_flags = ["nodejs_compat"]
+
+# Secrets (never put real values here - set via `wrangler secret put <NAME>`):
+#   BREVO_SMTP_HOST
+#   BREVO_SMTP_PORT
+#   BREVO_SMTP_LOGIN
+#   BREVO_SMTP_KEY
+#   BREVO_SENDER_EMAIL   - must be a verified sender/domain in Brevo
+#   BREVO_SENDER_NAME    - company name shown in the email body
+#   BREVO_FROM_NAME      - optional; SMTP From mailbox display name
+#                          (defaults to BREVO_SENDER_NAME if unset)
+#   REPORT_API_TOKEN     - shared secret for /send-report calls from gms-api
+#                          (set the SAME value on gms-api via its own secret)
+
+[vars]
+# Origins allowed to call this API (comma-separated), set as a plain var
+# since it's not secret.
+ALLOWED_ORIGINS = "https://gms-logistics.id,https://admin.gms-logistics.id,https://driver.gms-logistics.id,https://smittywerbenn.github.io,https://temp-gms.frel.cloud,http://localhost:5183"

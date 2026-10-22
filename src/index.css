@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+/* Brand palette derived from the GMS Logistics logo (navy + gold) -
+   overrides Tailwind's default blue and amber scales so every existing
+   utility class using those colors picks up the brand colors automatically. */
+@theme {
+  --color-blue-50: #d6e7fb;
+  --color-blue-100: #b1d0f5;
+  --color-blue-200: #7faee6;
+  --color-blue-300: #4984cc;
+  --color-blue-400: #1b5ead;
+  --color-blue-500: #01428f;
+  --color-blue-600: #013675;
+  --color-blue-700: #012b5e;
+  --color-blue-800: #04244a;
+  --color-blue-900: #061d38;
+  --color-blue-950: #061324;
+
+  --color-amber-50: #faedd6;
+  --color-amber-100: #f0d7aa;
+  --color-amber-200: #deb872;
+  --color-amber-300: #c79840;
+  --color-amber-400: #b27d1a;
+  --color-amber-500: #996505;
+  --color-amber-600: #805404;
+  --color-amber-700: #664403;
+  --color-amber-800: #4f3606;
+  --color-amber-900: #3d2b08;
+  --color-amber-950: #291d07;
+}
+
+/* Company Profile (COMPRO) brand tokens */
+@theme {
+  --color-gms-deep: #071b41;
+  --color-gms-corp: #0b2553;
+  --color-gms-navy: #102f63;
+  --color-gms-gold: #d4a72c;
+  --color-gms-bright: #e5b83b;
+  --color-gms-light: #f0c75e;
+  --color-gms-soft: #f7e9b5;
+  --color-gms-sky: #eaf0f8;
+  --color-gms-mist: #f4f7fc;
+  --color-gms-ink: #14213d;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  max-width: 100vw;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: #f4f5f7;
+  color: #1a1d29;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd2d9;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9aa5b1;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Viewport units resolve against the on-screen viewport on phones (and iOS
+   * Safari), so a min-h-screen shell can be taller than the page and spill
+   * onto a blank second page. Print height must come from the content only. */
+  .min-h-screen,
+  .h-screen {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* AWB: keep every block intact and never start a page of its own. */
+  .awb-print-area,
+  .awb-print-area > * {
+    break-before: avoid;
+    break-after: avoid;
+    page-break-before: avoid;
+    page-break-after: avoid;
+  }
+  .awb-print-area > div > * {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .awb-print-area {
+    max-width: 100%;
+    overflow: visible;
+  }
+  /* Compact spacing so the whole AWB fits one page without hiding anything. */
+  .awb-print-area .space-y-6 > :not(:last-child),
+  .awb-print-area .space-y-4 > :not(:last-child) {
+    margin-bottom: 0.6rem !important;
+  }
+  .awb-print-area .p-5,
+  .awb-print-area .p-4,
+  .awb-print-area .sm\:p-6 {
+    padding: 0.75rem !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* COMPRO scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--d, 0ms);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes dashMove {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.compro-focus:focus-visible,
+.compro button:focus-visible,
+.compro a:focus-visible,
+.compro input:focus-visible,
+.compro select:focus-visible,
+.compro textarea:focus-visible {
+  outline: 2px solid #d4a72c;
+  outline-offset: 2px;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }

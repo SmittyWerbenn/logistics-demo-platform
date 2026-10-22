@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071B41" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    <!--
+      Static defaults below: this is a client-rendered SPA with no
+      server-side rendering, so these are what any crawler/bot that does
+      NOT execute JavaScript (social link-preview bots, some simple
+      crawlers) will see, and what every route briefly shows before
+      src/utils/seo.ts's useSeo() hook overrides them for the actual page
+      once React mounts. They describe the homepage specifically, since
+      that's this app's primary entry point and most likely to be fetched
+      without JS execution.
+    -->
+    <meta name="description" content="GMS Logistics (PT Gangsar Mitra Suatama) menyediakan layanan logistik dan pengiriman barang antar kota dengan layanan FTL, LTL, FCL, LCL, Air Express, dan Project Cargo." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://gms-logistics.id/" />
+    <meta property="og:site_name" content="GMS Logistics" />
+    <meta property="og:title" content="GMS Logistics | Jasa Logistik & Pengiriman Barang Indonesia" />
+    <meta property="og:description" content="GMS Logistics (PT Gangsar Mitra Suatama) menyediakan layanan logistik dan pengiriman barang antar kota dengan layanan FTL, LTL, FCL, LCL, Air Express, dan Project Cargo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gms-logistics.id/" />
+    <meta property="og:image" content="https://gms-logistics.id/favicon.png" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GMS Logistics | Jasa Logistik & Pengiriman Barang Indonesia" />
+    <meta name="twitter:description" content="GMS Logistics (PT Gangsar Mitra Suatama) menyediakan layanan logistik dan pengiriman barang antar kota dengan layanan FTL, LTL, FCL, LCL, Air Express, dan Project Cargo." />
+    <meta name="twitter:image" content="https://gms-logistics.id/favicon.png" />
+    <title>GMS Logistics | Jasa Logistik &amp; Pengiriman Barang Indonesia</title>
+    <script type="application/ld+json" id="seo-jsonld-static">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://gms-logistics.id/#organization",
+        "name": "GMS Logistics",
+        "legalName": "PT Gangsar Mitra Suatama",
+        "url": "https://gms-logistics.id/",
+        "logo": "https://gms-logistics.id/favicon.png"
+      }
+    </script>
+    <script type="text/javascript">
+      // Unpacks the path that 404.html redirected here as a query string
+      // (see public/404.html), restoring the real URL before the app boots.
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
+    <script type="text/javascript">
+      // GitHub Pages serves index.html with ~10min caching, but every deploy
+      // replaces the content-hashed JS/CSS files entirely - so a tab left
+      // open (or reopened from a recent cache) across a deploy can end up
+      // requesting an asset file that no longer exists, which fails silently
+      // before React (and its ErrorBoundary) ever mounts, leaving a blank
+      // white page. Detect that specific failure and reload once to fetch
+      // the current index.html and its matching assets.
+      (function () {
+        var RELOAD_KEY = "gms-stale-asset-reload";
+        window.addEventListener(
+          "error",
+          function (e) {
+            var target = e.target;
+            if (!target || target === window) return;
+            var tag = target.tagName;
+            if (tag !== "SCRIPT" && tag !== "LINK") return;
+            try {
+              if (sessionStorage.getItem(RELOAD_KEY)) return;
+              sessionStorage.setItem(RELOAD_KEY, "1");
+            } catch (err) {
+              return;
+            }
+            window.location.reload();
+          },
+          true,
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
