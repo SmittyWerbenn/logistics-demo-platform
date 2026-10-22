@@ -1,5 +1,9 @@
 # GMS Logistics — Demo Platform
 
+[![Deploy demo to GitHub Pages](https://github.com/SmittyWerbenn/logistics-demo-platform/actions/workflows/deploy.yml/badge.svg)](https://github.com/SmittyWerbenn/logistics-demo-platform/actions/workflows/deploy.yml)
+
+**Live demo:** https://smittywerbenn.github.io/logistics-demo-platform/
+
 A fully static demo of the GMS Logistics tracking & resi system. No backend,
 no database server: the real GMS Worker code runs in the browser against a
 SQLite (WASM) database stored in IndexedDB, seeded with fictional demo data.

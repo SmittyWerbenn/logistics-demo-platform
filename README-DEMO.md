@@ -1,5 +1,7 @@
 # GMS Demo — Panduan Menjalankan & Presentasi
 
+**Live demo:** https://smittywerbenn.github.io/logistics-demo-platform/
+
 Demo statis GMS Logistics. **Tanpa backend, tanpa database server** — seluruh
 logika API GMS (RBAC, validasi, nomor AWB, audit log) dijalankan di browser
 memakai kode Worker asli, dengan database SQLite (WASM) yang disimpan di
