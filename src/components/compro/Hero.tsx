@@ -49,7 +49,7 @@ export function Hero() {
               {l(C.hero.ctaTrack)} <ArrowRight size={18} aria-hidden />
             </Link>
             <a
-              href="https://gms-logistics.id/cek-ongkir"
+              href="/cek-ongkir"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 border-gms-gold px-7 text-lg font-bold text-gms-light transition-colors hover:bg-gms-gold/10"
             >
               <Calculator size={18} aria-hidden /> {l(C.nav.checkPrice)}
