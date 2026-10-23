@@ -233,7 +233,7 @@ export function Navbar({ overlay }: { overlay: boolean }) {
           </nav>
           <div className="mt-5 grid gap-2.5">
             <a
-              href="https://gms-logistics.id/cek-ongkir"
+              href="/cek-ongkir"
               onClick={() => setOpen(false)}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gms-gold font-bold text-gms-deep"
             >
