@@ -1,4 +1,4 @@
-/** Pulls the AWB out of either a bare code ("SNT261105001") or a full
+/** Pulls the AWB out of either a bare code ("G260911001") or a full
  * tracking URL (e.g. the QR codes this app itself prints encode the URL).
  * Shared by the camera scanner and the manual AWB entry so both accept the
  * same input. */

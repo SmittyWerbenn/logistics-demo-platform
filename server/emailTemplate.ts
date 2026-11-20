@@ -71,12 +71,8 @@ export function buildEmailHtml(data: EmailTemplateData): string {
         <td align="center">
           <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:12px;overflow:hidden;max-width:600px;width:100%;">
             <tr>
-              <td style="background-color:#ee2229;height:5px;font-size:0;line-height:0;">&nbsp;</td>
-            </tr>
-            <tr>
-              <td style="background-color:#152340;padding:28px 24px;text-align:center;">
-              <div style="color:#ffffff;font-size:16px;font-weight:bold;">Sinartrans Logistics</div>
-              <div style="color:#fbc0be;font-size:11px;letter-spacing:0.6px;margin-top:4px;">SISTEM TRACKING &amp; RESI DIGITAL</div>
+              <td style="background-color:#172554;padding:28px 24px;text-align:center;">
+              <div style="color:#ffffff;font-size:16px;font-weight:bold;">GMS Logistics</div>
               </td>
             </tr>
             <tr>
@@ -87,7 +83,7 @@ export function buildEmailHtml(data: EmailTemplateData): string {
                   <tr>
                     <td style="padding:16px;">
                       <div style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;">Nomor AWB</div>
-                      <div style="font-size:18px;font-weight:bold;color:#152340;font-family:'Courier New',monospace;margin-top:2px;">${awb}</div>
+                      <div style="font-size:18px;font-weight:bold;color:#172554;font-family:'Courier New',monospace;margin-top:2px;">${awb}</div>
                       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;border-top:1px solid #e2e8f0;">
                         <tr>
                           <td width="50%" style="vertical-align:top;padding-top:14px;">
@@ -103,7 +99,7 @@ export function buildEmailHtml(data: EmailTemplateData): string {
                       </table>
                       <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:14px;">
                         <div style="font-size:11px;color:#94a3b8;">Status</div>
-                        <div style="font-size:13px;color:#253b6d;font-weight:600;">${status}</div>
+                        <div style="font-size:13px;color:#1d4ed8;font-weight:600;">${status}</div>
                       </div>
                       <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:14px;">
                         <div style="font-size:11px;color:#94a3b8;">Tanggal Terbit</div>
@@ -113,7 +109,7 @@ export function buildEmailHtml(data: EmailTemplateData): string {
                   </tr>
                 </table>
                 <div style="text-align:center;margin-top:26px;">
-                  <a href="${trackingUrl}" style="display:inline-block;background-color:#152340;color:#ffffff;text-decoration:none;font-size:14px;font-weight:bold;padding:12px 28px;border-radius:8px;">${buttonLabel}</a>
+                  <a href="${trackingUrl}" style="display:inline-block;background-color:#172554;color:#ffffff;text-decoration:none;font-size:14px;font-weight:bold;padding:12px 28px;border-radius:8px;">${buttonLabel}</a>
                 </div>
                 <p style="margin:26px 0 0;color:#94a3b8;font-size:12px;line-height:1.6;">${footerNote}</p>
               </td>

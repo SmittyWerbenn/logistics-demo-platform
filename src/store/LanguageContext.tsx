@@ -2,7 +2,7 @@ import { createContext, useContext, type ReactNode } from "react";
 import { translations, type Language, type Translations } from "../data/translations";
 import { usePersistedState } from "../utils/usePersistedState";
 
-const STORAGE_KEY = "snt-language-v1";
+const STORAGE_KEY = "gms-language-v1";
 
 interface LanguageContextValue {
   language: Language;

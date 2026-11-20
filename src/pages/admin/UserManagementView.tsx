@@ -295,8 +295,8 @@ export default function UserManagementView({ group }: { group: UserGroup }) {
         description={
           isDriverGroup
             ? "Kelola akun Driver beserta Nopol truck yang ditautkan. Akun non-Driver ada di menu User Admin."
-            : `Kelola akun internal dan peran akses (Sinartrans-Admin / Viewer / Client / Mitra). Akun Driver ada di menu User Driver.${
-                isAdminActor ? " Sebagai Sinartrans-Admin, Anda hanya dapat menambah/mengubah akun Viewer, Client, dan Mitra." : ""
+            : `Kelola akun internal dan peran akses (GMS-Admin / Viewer / Client / Mitra). Akun Driver ada di menu User Driver.${
+                isAdminActor ? " Sebagai GMS-Admin, Anda hanya dapat menambah/mengubah akun Viewer, Client, dan Mitra." : ""
               }`
         }
         actions={
@@ -463,7 +463,7 @@ export default function UserManagementView({ group }: { group: UserGroup }) {
                         title={
                           u.role === "Superadmin"
                             ? "Akun Superadmin tidak bisa diubah lewat halaman ini"
-                            : "Hanya Superadmin yang dapat mengubah akun Sinartrans-Admin lain"
+                            : "Hanya Superadmin yang dapat mengubah akun GMS-Admin lain"
                         }
                       >
                         -
@@ -618,7 +618,7 @@ export default function UserManagementView({ group }: { group: UserGroup }) {
                     required
                     type="email"
                     className={`${inputClass} ${emailError ? "border-red-400 focus:border-red-500 focus:ring-red-100" : ""}`}
-                    placeholder="nama@sinartranslogistics.co.id"
+                    placeholder="nama@gms-logistics.id"
                     value={form.email}
                     onChange={(e) => {
                       setForm({ ...form, email: e.target.value });

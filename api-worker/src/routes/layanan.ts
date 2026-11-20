@@ -25,13 +25,13 @@ function readDeskripsi(body: Record<string, unknown>): string | null {
 }
 
 /** Master Layanan MANAGE access: roles holding `settings.manage` -
- * Superadmin + Admin (Sinartrans-Admin) only, same gate as Master Mitra / Clients. */
+ * Superadmin + Admin (GMS-Admin) only, same gate as Master Mitra / Clients. */
 function requireLayananManage(ctx: Ctx) {
   return requirePermission(ctx, "settings.manage");
 }
 
 /** Master Layanan VIEW access (untuk "lihat juga yang Nonaktif"): role dengan
- * permission `settings.view` - Superadmin, Admin (Sinartrans-Admin), Viewer, dan
+ * permission `settings.view` - Superadmin, Admin (GMS-Admin), Viewer, dan
  * Client (Admin Client), sama seperti Rate Publish. Role lain (Driver, Mitra)
  * tetap boleh membaca daftar (order form butuh dropdown-nya, lihat GET di
  * bawah) tapi hanya menerima entri yang AKTIF. */

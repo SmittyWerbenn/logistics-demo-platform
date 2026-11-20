@@ -1,7 +1,7 @@
 import type { UserRole } from "../types";
 
 /**
- * Visual identity per role. The whole app shares one design system (Sinartrans
+ * Visual identity per role. The whole app shares one design system (GMS
  * Logistics navy + the same cards, tables, spacing and typography); a role
  * only changes the ACCENT - active menu, primary buttons, links/focus rings,
  * the header accent bar - through the `--color-accent-*` tokens (see
@@ -10,7 +10,7 @@ import type { UserRole } from "../types";
  * deliberately not themed so they mean the same thing for everyone.
  *
  *   Superadmin  indigo   - most authoritative / elegant
- *   Admin       navy     - the Sinartrans Logistics primary (default tokens)
+ *   Admin       navy     - the GMS Logistics primary (default tokens)
  *   Client      sky      - a lighter shade derived from the primary
  *   Viewer      slate    - neutral and clean
  *   Driver      orange   - easy to spot for field operations

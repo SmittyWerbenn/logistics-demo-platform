@@ -29,7 +29,7 @@ export function creatorRoleOf(row: { created_by_role?: string | null; customer_i
 export interface CancelPolicy {
   /** Cancel the order right now (reason required). */
   canDirect: boolean;
-  /** Sinartrans staff may ask the Client to approve a cancellation. */
+  /** GMS staff may ask the Client to approve a cancellation. */
   canRequest: boolean;
   /** This Client user may approve/reject the pending request. */
   canDecide: boolean;

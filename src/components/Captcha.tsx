@@ -84,19 +84,19 @@ export const Captcha = forwardRef<CaptchaHandle, Props>(function Captcha({ value
   const src = challenge ? `data:image/svg+xml;utf8,${encodeURIComponent(challenge.image)}` : "";
 
   return (
-    <div className={compact ? "" : "rounded-2xl border border-slate-200 bg-snt-mist p-4"}>
+    <div className={compact ? "" : "rounded-2xl border border-slate-200 bg-gms-mist p-4"}>
       {!compact && (
         <>
-          <p className="text-base font-bold text-snt-corp">{tx("title")}</p>
+          <p className="text-base font-bold text-gms-corp">{tx("title")}</p>
           <p className="mt-0.5 text-sm text-slate-600">{tx("hint")}</p>
         </>
       )}
       <div className={`flex items-stretch gap-2 ${compact ? "" : "mt-3"}`}>
-        <div className="relative flex h-16 min-w-0 flex-1 items-center justify-center overflow-hidden rounded-xl border border-snt-accent/40 bg-gradient-to-br from-snt-mist to-snt-sky sm:h-[4.5rem] sm:max-w-[16rem]">
+        <div className="relative flex h-16 min-w-0 flex-1 items-center justify-center overflow-hidden rounded-xl border border-gms-gold/40 bg-gradient-to-br from-gms-mist to-gms-sky sm:h-[4.5rem] sm:max-w-[16rem]">
           {src && !loading ? (
             <img src={src} alt={tx("imageAlt")} className="h-full w-full select-none object-contain" draggable={false} />
           ) : loading ? (
-            <Loader2 size={20} className="animate-spin text-snt-corp" aria-hidden />
+            <Loader2 size={20} className="animate-spin text-gms-corp" aria-hidden />
           ) : (
             <span className="px-2 text-center text-xs font-semibold text-red-600">{tx("loadFail")}</span>
           )}
@@ -107,12 +107,12 @@ export const Captcha = forwardRef<CaptchaHandle, Props>(function Captcha({ value
           disabled={loading}
           aria-label={tx("refresh")}
           title={tx("refresh")}
-          className="inline-flex h-16 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-300 bg-white text-snt-corp transition-colors hover:border-snt-accent hover:text-snt-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-snt-accent disabled:opacity-60 sm:h-[4.5rem]"
+          className="inline-flex h-16 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-300 bg-white text-gms-corp transition-colors hover:border-gms-gold hover:text-gms-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gms-gold disabled:opacity-60 sm:h-[4.5rem]"
         >
           <RotateCw size={18} className={loading ? "animate-spin" : ""} aria-hidden />
         </button>
       </div>
-      <label htmlFor={inputId} className="mb-1 mt-3 block text-sm font-semibold text-snt-corp">
+      <label htmlFor={inputId} className="mb-1 mt-3 block text-sm font-semibold text-gms-corp">
         {tx("label")} <span className="text-red-600" aria-hidden>*</span>
       </label>
       <input
@@ -129,10 +129,10 @@ export const Captcha = forwardRef<CaptchaHandle, Props>(function Captcha({ value
         maxLength={8}
         aria-invalid={!!error}
         aria-describedby={error ? `${inputId}-err` : undefined}
-        className={`min-h-12 w-full rounded-xl border bg-white px-3.5 font-mono text-lg font-bold uppercase tracking-[0.3em] text-snt-ink placeholder:font-sans placeholder:text-sm placeholder:font-normal placeholder:normal-case placeholder:tracking-normal placeholder:text-slate-400 focus:outline-none focus:ring-2 ${error ? "border-red-500 focus:ring-red-200" : "border-slate-300 focus:border-snt-accent focus:ring-snt-accent/30"}`}
+        className={`min-h-12 w-full rounded-xl border bg-white px-3.5 font-mono text-lg font-bold uppercase tracking-[0.3em] text-gms-ink placeholder:font-sans placeholder:text-sm placeholder:font-normal placeholder:normal-case placeholder:tracking-normal placeholder:text-slate-400 focus:outline-none focus:ring-2 ${error ? "border-red-500 focus:ring-red-200" : "border-slate-300 focus:border-gms-gold focus:ring-gms-gold/30"}`}
       />
       {failed && (
-        <button type="button" onClick={() => void load()} className="mt-1 text-xs font-semibold text-snt-corp underline">
+        <button type="button" onClick={() => void load()} className="mt-1 text-xs font-semibold text-gms-corp underline">
           {tx("retry")}
         </button>
       )}

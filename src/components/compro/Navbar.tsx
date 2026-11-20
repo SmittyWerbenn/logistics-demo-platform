@@ -1,7 +1,7 @@
 import { Calculator, Check, ChevronDown, Menu, Package, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import brandLogo from "../../assets/logo-sinartrans.webp";
+import logoIcon from "../../assets/icon-mark.png";
 import { C } from "../../data/compro/content";
 import type { Language } from "../../data/translations";
 import { useLanguage } from "../../store/LanguageContext";
@@ -56,7 +56,7 @@ function LangSwitch({ solid }: { solid: boolean }) {
         aria-expanded={open}
         className={`inline-flex min-h-9 items-center gap-1.5 rounded-full border px-2.5 text-base font-bold uppercase transition-colors sm:px-3 ${
           solid
-            ? "border-slate-200 bg-snt-mist text-slate-700 hover:text-snt-corp"
+            ? "border-slate-200 bg-gms-mist text-slate-700 hover:text-gms-corp"
             : "border-white/25 bg-white/10 text-white hover:bg-white/20"
         }`}
       >
@@ -78,11 +78,11 @@ function LangSwitch({ solid }: { solid: boolean }) {
                   setLanguage(value);
                   setOpen(false);
                 }}
-                className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-base font-medium text-slate-700 hover:bg-snt-mist"
+                className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-base font-medium text-slate-700 hover:bg-gms-mist"
               >
                 <Flag className="h-3.5 w-5 shrink-0 rounded-[2px]" />
                 <span className="flex-1">{label}</span>
-                {language === value && <Check size={15} className="text-snt-corp" aria-hidden />}
+                {language === value && <Check size={15} className="text-gms-corp" aria-hidden />}
               </button>
             </li>
           ))}
@@ -152,20 +152,15 @@ export function Navbar({ overlay }: { overlay: boolean }) {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 lg:h-24 lg:px-8">
-        <Link to="/" onClick={() => setOpen(false)} className="flex min-w-0 items-center gap-2 sm:gap-3">
-          <span
-            className={`inline-flex shrink-0 items-center rounded-xl transition-colors duration-300 ${
-              solid ? "bg-transparent" : "bg-white px-2.5 py-1.5 shadow-sm"
-            }`}
-          >
-            <img
-              src={brandLogo}
-              alt="Sinartrans Logistics - PT Sinartrans Logistics"
-              className="h-8 w-auto min-[360px]:h-9 min-[400px]:h-10 sm:h-11"
-            />
-          </span>
-          <span className={`hidden whitespace-nowrap leading-tight sm:block ${solid ? "text-slate-500" : "text-white/70"}`}>
-            {l(C.hero.eyebrow)}
+        <Link to="/" onClick={() => setOpen(false)} className="flex min-w-0 items-center gap-2 sm:gap-2.5">
+          <img src={logoIcon} alt="GMS Logistics - PT Gangsar Mitra Suatama" className="h-9 w-9 shrink-0 object-contain min-[360px]:h-10 min-[360px]:w-10 min-[400px]:h-11 min-[400px]:w-11 sm:h-12 sm:w-12" />
+          <span className="shrink-0 leading-tight">
+            <span className={`block whitespace-nowrap font-display text-lg font-extrabold min-[360px]:text-xl min-[400px]:text-2xl sm:text-3xl ${solid ? "text-gms-corp" : "text-white"}`}>
+              GMS Logistics
+            </span>
+            <span className={`hidden whitespace-nowrap text-lg sm:block ${solid ? "text-slate-500" : "text-white/70"}`}>
+              {l(C.hero.eyebrow)}
+            </span>
           </span>
         </Link>
 
@@ -181,17 +176,17 @@ export function Navbar({ overlay }: { overlay: boolean }) {
                 className={`relative whitespace-nowrap rounded-md px-2.5 py-2 text-xl font-semibold transition-colors ${
                   isActive
                     ? solid
-                      ? "text-snt-accent"
-                      : "text-snt-light"
+                      ? "text-gms-gold"
+                      : "text-gms-light"
                     : solid
-                      ? "text-slate-700 hover:text-snt-corp"
+                      ? "text-slate-700 hover:text-gms-corp"
                       : "text-white/85 hover:text-white"
                 }`}
               >
                 {l(C.nav[s.key])}
                 <span
                   aria-hidden
-                  className={`absolute inset-x-3 -bottom-0.5 h-0.5 rounded bg-snt-accent transition-transform ${
+                  className={`absolute inset-x-3 -bottom-0.5 h-0.5 rounded bg-gms-gold transition-transform ${
                     isActive ? "scale-x-100" : "scale-x-0"
                   }`}
                 />
@@ -204,7 +199,7 @@ export function Navbar({ overlay }: { overlay: boolean }) {
           <LangSwitch solid={solid} />
           <button
             type="button"
-            className={`rounded-md p-2 xl:hidden ${solid ? "text-snt-corp hover:bg-snt-sky" : "text-white hover:bg-white/10"}`}
+            className={`rounded-md p-2 xl:hidden ${solid ? "text-gms-corp hover:bg-gms-sky" : "text-white hover:bg-white/10"}`}
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? l(C.nav.closeMenu) : l(C.nav.openMenu)}
             aria-expanded={open}
@@ -228,7 +223,7 @@ export function Navbar({ overlay }: { overlay: boolean }) {
                 type="button"
                 onClick={() => go(s.id)}
                 className={`flex min-h-12 items-center justify-between border-b border-slate-100 px-2 text-left text-2xl font-semibold ${
-                  onHome && active === s.id ? "text-snt-accent" : "text-snt-corp"
+                  onHome && active === s.id ? "text-gms-gold" : "text-gms-corp"
                 }`}
               >
                 {l(C.nav[s.key])}
@@ -240,15 +235,15 @@ export function Navbar({ overlay }: { overlay: boolean }) {
             <a
               href="/cek-ongkir"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-snt-accent font-bold text-snt-deep"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gms-gold font-bold text-gms-deep"
             >
               <Calculator size={18} />
               {language === "id" ? "Cek Ongkir" : "Check Rates"}
             </a>
             <a
-              href="https://sinartranslogistics.co.id/tracking"
+              href="https://gms-logistics.id/tracking"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 border-snt-accent font-bold text-snt-accent"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 border-gms-gold font-bold text-gms-gold"
             >
               <Package size={18} />
               {language === "id" ? "Lacak Paket" : "Track Package"}
@@ -256,7 +251,7 @@ export function Navbar({ overlay }: { overlay: boolean }) {
             <button
               type="button"
               onClick={() => go("kontak")}
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-snt-corp font-bold text-snt-corp"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-gms-corp font-bold text-gms-corp"
             >
               {l(C.hero.ctaQuote)}
             </button>

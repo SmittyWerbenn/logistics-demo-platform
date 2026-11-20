@@ -6,7 +6,7 @@ import { normalizeWhatsApp } from "../utils/whatsapp";
 // Pengaturan. Same text the page used to hardcode.
 export const CONTACT_DEFAULTS = {
   contactPhone: "021-2200-8899",
-  contactEmail: "cs@sinartranslogistics.co.id",
+  contactEmail: "cs@gms-logistics.co.id",
   contactHours: "Senin - Sabtu, 08.00 - 18.00 WIB",
   headOffice: "Surabaya",
 };

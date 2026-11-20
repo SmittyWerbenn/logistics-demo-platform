@@ -74,7 +74,7 @@ export function renderCaptchaSvg(code: string): string {
   const parts: string[] = [];
   parts.push(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img">`,
-    `<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5f7fb"/><stop offset="1" stop-color="#e6ecf8"/></linearGradient></defs>`,
+    `<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f7fc"/><stop offset="1" stop-color="#eaf0f8"/></linearGradient></defs>`,
     `<rect width="${W}" height="${H}" fill="url(#g)"/>`,
   );
   // background noise: gold curves + dots
@@ -82,11 +82,11 @@ export function renderCaptchaSvg(code: string): string {
     const y1 = between(8, H - 8);
     const y2 = between(8, H - 8);
     parts.push(
-      `<path d="M0 ${r1(y1)} C ${r1(between(50, 90))} ${r1(between(0, H))}, ${r1(between(140, 190))} ${r1(between(0, H))}, ${W} ${r1(y2)}" fill="none" stroke="#ee2229" stroke-opacity="0.45" stroke-width="1.4"/>`,
+      `<path d="M0 ${r1(y1)} C ${r1(between(50, 90))} ${r1(between(0, H))}, ${r1(between(140, 190))} ${r1(between(0, H))}, ${W} ${r1(y2)}" fill="none" stroke="#d4a72c" stroke-opacity="0.45" stroke-width="1.4"/>`,
     );
   }
   for (let i = 0; i < 38; i++) {
-    parts.push(`<circle cx="${r1(between(2, W - 2))}" cy="${r1(between(2, H - 2))}" r="${r1(between(0.7, 1.7))}" fill="${rand() > 0.5 ? "#ee2229" : "#253b6d"}" fill-opacity="0.35"/>`);
+    parts.push(`<circle cx="${r1(between(2, W - 2))}" cy="${r1(between(2, H - 2))}" r="${r1(between(0.7, 1.7))}" fill="${rand() > 0.5 ? "#d4a72c" : "#102f63"}" fill-opacity="0.35"/>`);
   }
   // characters
   const cell = (W - 24) / code.length;
@@ -125,13 +125,13 @@ export function renderCaptchaSvg(code: string): string {
       );
     }
     parts.push(
-      `<path d="${d.join("")}" fill="none" stroke="${i % 2 ? "#152747" : "#253b6d"}" stroke-width="${r1(between(2.1, 2.6))}" stroke-linecap="round" stroke-linejoin="round"/>`,
+      `<path d="${d.join("")}" fill="none" stroke="${i % 2 ? "#0b2553" : "#102f63"}" stroke-width="${r1(between(2.1, 2.6))}" stroke-linecap="round" stroke-linejoin="round"/>`,
     );
   }
   // strike-through lines on top (light)
   for (let i = 0; i < 2; i++) {
     parts.push(
-      `<path d="M${r1(between(0, 20))} ${r1(between(15, 65))} Q ${r1(between(80, 160))} ${r1(between(0, H))} ${W} ${r1(between(15, 65))}" fill="none" stroke="#0b1733" stroke-opacity="0.38" stroke-width="1.3"/>`,
+      `<path d="M${r1(between(0, 20))} ${r1(between(15, 65))} Q ${r1(between(80, 160))} ${r1(between(0, H))} ${W} ${r1(between(15, 65))}" fill="none" stroke="#071b41" stroke-opacity="0.38" stroke-width="1.3"/>`,
     );
   }
   parts.push("</svg>");

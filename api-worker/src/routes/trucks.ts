@@ -213,7 +213,7 @@ export function registerTruckRoutes(router: Router) {
     return ok({ items: rows.results, meta: pageMeta(page, limit, total?.c ?? 0) });
   });
 
-  // ---- Armada Dedicated (Sinartrans assigns a unit to exactly one Client) ----
+  // ---- Armada Dedicated (GMS assigns a unit to exactly one Client) ----
   function readAlasan(body: Record<string, unknown>, label: string, required: boolean): string | null {
     const v = typeof body.alasan === "string" ? body.alasan.trim() : "";
     if (required && !v) throw Errors.badRequest(`${label} wajib diisi.`);

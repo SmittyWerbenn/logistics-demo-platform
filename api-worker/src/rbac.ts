@@ -20,9 +20,7 @@ export type Permission =
   | "files.upload"
   | "recovery.review"
   | "recycle.manage"
-  | "client_logos.manage"
-  | "ekspedisi.manage"
-  | "ekspedisi.approve";
+  | "client_logos.manage";
 
 const ALL: Permission[] = [
   "users.manage",
@@ -46,9 +44,6 @@ const ALL: Permission[] = [
   "recycle.manage",
   // Client logo management on the Company Profile is Superadmin-only.
   "client_logos.manage",
-  // Ekspedisi module: Superadmin acts as Owner (approves price changes).
-  "ekspedisi.manage",
-  "ekspedisi.approve",
 ];
 
 const ROLE_PERMISSIONS: Record<Role, Set<Permission>> = {
@@ -72,7 +67,6 @@ const ROLE_PERMISSIONS: Record<Role, Set<Permission>> = {
     "settings.manage",
     "files.upload",
     "recovery.review",
-    "ekspedisi.manage",
   ]),
   Driver: new Set([
     "shipments.view",

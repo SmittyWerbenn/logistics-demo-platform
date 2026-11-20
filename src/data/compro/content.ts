@@ -46,7 +46,7 @@ export const C = {
     },
     ctaTrack: { id: "Lacak Paket", en: "Track Shipment" },
     ctaQuote: { id: "Request Quotation", en: "Request Quotation" },
-    imageAlt: { id: "Serah terima paket oleh tim Sinartrans Logistics", en: "Package handover by the Sinartrans Logistics team" },
+    imageAlt: { id: "Serah terima paket oleh tim GMS Logistics", en: "Package handover by the GMS Logistics team" },
     trust: [
       { id: "Real-Time Tracking", en: "Real-Time Tracking" },
       { id: "Live Photo Update", en: "Live Photo Update" },
@@ -56,16 +56,16 @@ export const C = {
   },
   about: {
     eyebrow: { id: "Tentang Kami", en: "About Us" },
-    title: { id: "Tentang Sinartrans Logistics", en: "About Sinartrans Logistics" },
+    title: { id: "Tentang GMS Logistics", en: "About GMS Logistics" },
     p1: {
-      id: "PT Sinartrans Logistics adalah perusahaan jasa logistik dan pengiriman barang yang melayani rute antar kota di Indonesia. Kami berkomitmen menghadirkan layanan pengiriman yang transparan dan mudah dipantau.",
-      en: "PT Sinartrans Logistics is a logistics and freight company serving intercity routes across Indonesia. We are committed to transparent, easy-to-monitor delivery services.",
+      id: "PT Gangsar Mitra Suatama (GMS Logistics) adalah perusahaan jasa logistik dan pengiriman barang yang melayani rute antar kota di Indonesia. Kami berkomitmen menghadirkan layanan pengiriman yang transparan dan mudah dipantau.",
+      en: "PT Gangsar Mitra Suatama (GMS Logistics) is a logistics and freight company serving intercity routes across Indonesia. We are committed to transparent, easy-to-monitor delivery services.",
     },
     p2: {
       id: "Melalui Sistem Tracking & Resi Digital, setiap pengiriman memiliki nomor resi (AWB) unik yang dapat dilacak kapan saja, lengkap dengan status, lokasi, foto dokumentasi, informasi unit truk, hingga bukti serah terima (Proof of Delivery).",
       en: "Through our Digital Tracking & Waybill System, every shipment has a unique AWB number that can be tracked anytime, complete with status, location, photo documentation, truck unit information, and Proof of Delivery.",
     },
-    imageAlt: { id: "Operasional Sinartrans Logistics", en: "Sinartrans Logistics operations" },
+    imageAlt: { id: "Operasional GMS Logistics", en: "GMS Logistics operations" },
     visionLabel: { id: "Visi", en: "Vision" },
     missionLabel: { id: "Misi", en: "Mission" },
     valuesLabel: { id: "Nilai Perusahaan", en: "Company Values" },
@@ -86,7 +86,7 @@ export const C = {
   },
   why: {
     eyebrow: { id: "Keunggulan", en: "Advantages" },
-    title: { id: "Mengapa Memilih Sinartrans Logistics?", en: "Why Choose Sinartrans Logistics?" },
+    title: { id: "Mengapa Memilih GMS Logistics?", en: "Why Choose GMS Logistics?" },
     sub: { id: "Tujuh alasan mitra bisnis mempercayakan pengirimannya kepada kami.", en: "Seven reasons business partners trust us with their shipments." },
     items: [
       { icon: Radar, title: { id: "Real-Time Tracking", en: "Real-Time Tracking" }, desc: { id: "Pantau lokasi dan status pengiriman secara real-time.", en: "Monitor shipment location and status in real time." } },
@@ -117,8 +117,8 @@ export const C = {
     eyebrow: { id: "Armada", en: "Fleet" },
     title: { id: "Armada Lengkap untuk Setiap Kebutuhan Logistik", en: "A Complete Fleet for Every Logistics Need" },
     sub: {
-      id: "Dari pengiriman reguler hingga kebutuhan transportasi khusus, Sinartrans Logistics menyediakan berbagai pilihan armada yang dapat disesuaikan dengan jenis, ukuran, berat, dan karakteristik muatan.",
-      en: "From regular shipments to special transportation, Sinartrans Logistics offers a range of vehicles that can be matched to the type, size, weight, and characteristics of your cargo.",
+      id: "Dari pengiriman reguler hingga kebutuhan transportasi khusus, GMS Logistics menyediakan berbagai pilihan armada yang dapat disesuaikan dengan jenis, ukuran, berat, dan karakteristik muatan.",
+      en: "From regular shipments to special transportation, GMS Logistics offers a range of vehicles that can be matched to the type, size, weight, and characteristics of your cargo.",
     },
     searchPlaceholder: { id: "Cari jenis armada...", en: "Search fleet type..." },
     searchLabel: { id: "Cari armada", en: "Search fleet" },
@@ -166,7 +166,7 @@ export const C = {
   },
   journey: {
     eyebrow: { id: "Proses Pengiriman", en: "Shipment Process" },
-    title: { id: "Perjalanan Pengiriman Bersama Sinartrans Logistics", en: "Your Shipment Journey with Sinartrans Logistics" },
+    title: { id: "Perjalanan Pengiriman Bersama GMS Logistics", en: "Your Shipment Journey with GMS Logistics" },
     sub: {
       id: "Dari proses administrasi hingga serah terima, setiap pengiriman dipantau dan dikelola secara terkoordinasi.",
       en: "From administration to handover, every shipment is monitored and managed in a coordinated way.",
@@ -190,7 +190,7 @@ export const C = {
     sample: { id: "Contoh tampilan", en: "Sample view" },
     cta: { id: "Lihat Tracking Shipment", en: "View Shipment Tracking" },
     ctaCopy: { id: "Ikuti perjalanan pengiriman Anda dari pickup hingga serah terima.", en: "Follow your shipment from pickup to handover." },
-    systemTitle: { id: "Didukung Sistem Sinartrans Logistics", en: "Powered by the Sinartrans Logistics System" },
+    systemTitle: { id: "Didukung Sistem GMS Logistics", en: "Powered by the GMS Logistics System" },
     system: [
       { id: "Shipment Management", en: "Shipment Management" },
       { id: "Driver Portal", en: "Driver Portal" },
@@ -205,17 +205,18 @@ export const C = {
     eyebrow: { id: "Coverage", en: "Coverage" },
     title: { id: "Coverage & Network", en: "Coverage & Network" },
     sub: {
-      id: "Jaringan layanan pengiriman Sinartrans Logistics di berbagai kota di Indonesia.",
-      en: "Sinartrans Logistics delivery network across cities in Indonesia.",
+      id: "Jaringan layanan pengiriman GMS Logistics di berbagai kota di Indonesia.",
+      en: "GMS Logistics delivery network across cities in Indonesia.",
     },
     citiesSuffix: { id: "kota terjangkau", en: "cities covered" },
     note: { id: "Daftar kota di bawah adalah kota master pada sistem kami. Hubungi tim untuk tujuan lainnya.", en: "The cities below are the master cities in our system. Contact our team for other destinations." },
     islands: { Jawa: "Jawa", Sumatera: "Sumatera", Bali: "Bali", Sulawesi: "Sulawesi", Kalimantan: "Kalimantan" } as Record<string, string>,
+    mapLabel: { id: "Peta jaringan layanan (ilustrasi)", en: "Service network map (illustration)" },
   },
   tracking: {
     eyebrow: { id: "Tracking", en: "Tracking" },
     title: { id: "Pantau Pengiriman Anda", en: "Track Your Shipment" },
-    sub: { id: "Pantau status dan perjalanan shipment secara mudah melalui sistem tracking Sinartrans Logistics.", en: "Easily monitor your shipment status and journey through the Sinartrans Logistics tracking system." },
+    sub: { id: "Pantau status dan perjalanan shipment secara mudah melalui sistem tracking GMS Logistics.", en: "Easily monitor your shipment status and journey through the GMS Logistics tracking system." },
     placeholder: { id: "Masukkan Nomor AWB / Shipment", en: "Enter AWB / Shipment Number" },
     label: { id: "Nomor AWB / Shipment", en: "AWB / Shipment Number" },
     button: { id: "Lacak Pengiriman", en: "Track Shipment" },
@@ -231,18 +232,18 @@ export const C = {
   clients: {
     eyebrow: { id: "Client / Partner", en: "Clients / Partners" },
     title: { id: "Trusted by Our Clients", en: "Trusted by Our Clients" },
-    sub: { id: "Perusahaan yang mempercayakan pengiriman kepada Sinartrans Logistics.", en: "Companies that trust Sinartrans Logistics with their shipments." },
+    sub: { id: "Perusahaan yang mempercayakan pengiriman kepada GMS Logistics.", en: "Companies that trust GMS Logistics with their shipments." },
     empty: { id: "Logo client dan partner akan ditampilkan di sini.", en: "Client and partner logos will be shown here." },
   },
   cta: {
-    title: { id: "Siap Mengirim Bersama Sinartrans Logistics?", en: "Ready to Ship with Sinartrans Logistics?" },
+    title: { id: "Siap Mengirim Bersama GMS Logistics?", en: "Ready to Ship with GMS Logistics?" },
     sub: { id: "Konsultasikan kebutuhan transportasi dan pengiriman Anda dengan tim kami.", en: "Discuss your transportation and shipping needs with our team." },
     quote: { id: "Request Quotation", en: "Request Quotation" },
     contact: { id: "Contact Us", en: "Contact Us" },
   },
   contact: {
     eyebrow: { id: "Contact", en: "Contact" },
-    title: { id: "Hubungi Sinartrans Logistics", en: "Contact Sinartrans Logistics" },
+    title: { id: "Hubungi GMS Logistics", en: "Contact GMS Logistics" },
     sub: { id: "Sampaikan kebutuhan pengiriman Anda. Tim kami akan menindaklanjuti.", en: "Tell us your shipping needs. Our team will follow up." },
     email: { id: "Email", en: "Email" },
     phone: { id: "Telepon", en: "Phone" },
@@ -292,16 +293,16 @@ export const C = {
     tracking: { id: "Tracking", en: "Tracking" },
     contact: { id: "Kontak", en: "Contact" },
     followUs: { id: "Ikuti Kami", en: "Follow Us" },
-    copyright: { id: "Sinartrans Logistics. Hak cipta dilindungi.", en: "Sinartrans Logistics. All rights reserved." },
+    copyright: { id: "PT Gangsar Mitra Suatama · GMS Logistics. Hak cipta dilindungi.", en: "PT Gangsar Mitra Suatama · GMS Logistics. All rights reserved." },
   },
   seo: {
     title: {
-      id: "Sinartrans Logistics | Jasa Logistik & Pengiriman Barang Indonesia",
-      en: "Sinartrans Logistics | Logistics & Freight Shipping Services Indonesia",
+      id: "GMS Logistics | Jasa Logistik & Pengiriman Barang Indonesia",
+      en: "GMS Logistics | Logistics & Freight Shipping Services Indonesia",
     },
     description: {
-      id: "Sinartrans Logistics menyediakan layanan logistik dan pengiriman barang antar kota dengan layanan FTL, LTL, FCL, LCL, Air Express, dan Project Cargo.",
-      en: "Sinartrans Logistics provides intercity logistics and freight shipping services with FTL, LTL, FCL, LCL, Air Express, and Project Cargo.",
+      id: "GMS Logistics (PT Gangsar Mitra Suatama) menyediakan layanan logistik dan pengiriman barang antar kota dengan layanan FTL, LTL, FCL, LCL, Air Express, dan Project Cargo.",
+      en: "GMS Logistics (PT Gangsar Mitra Suatama) provides intercity logistics and freight shipping services with FTL, LTL, FCL, LCL, Air Express, and Project Cargo.",
     },
   },
   backToTop: { id: "Kembali ke atas", en: "Back to top" },

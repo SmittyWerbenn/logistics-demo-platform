@@ -2,6 +2,7 @@ import {
   ArrowLeft,
   CheckCircle2,
   Download,
+  Handshake,
   Loader2,
   Mail,
   MapPin,
@@ -16,13 +17,13 @@ import {
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { AdminLayout } from "../../components/layout/AdminLayout";
-import brandLogo from "../../assets/logo-sinartrans.webp";
 import { QRCode } from "../../components/QRCode";
 import { RefreshButton } from "../../components/RefreshButton";
 import { ClaimDecisionModal } from "../../components/ClaimDecisionModal";
 import { EditShipmentModal } from "../../components/EditShipmentModal";
 import { StatusBadge } from "../../components/StatusBadge";
 import { useAuth } from "../../store/AuthContext";
+import { useMitras } from "../../store/MitraContext";
 import { useShipments } from "../../store/ShipmentContext";
 import type { Shipment } from "../../types";
 import { api } from "../../utils/apiClient";
@@ -43,7 +44,8 @@ interface DriverPosition {
 
 export default function ShipmentDetail() {
   const { awb } = useParams<{ awb: string }>();
-  const { getByAwb, confirmClaim, rejectClaim, unassignDriver } = useShipments();
+  const { getByAwb, confirmClaim, rejectClaim, unassignDriver, assignMitra } = useShipments();
+  const { activeMitras } = useMitras();
   const { profile } = useAuth();
   const navigate = useNavigate();
   const [shipment, setShipment] = useState<Shipment | null>(null);
@@ -54,12 +56,16 @@ export default function ShipmentDetail() {
   const [driverPosition, setDriverPosition] = useState<DriverPosition | null>(null);
   const canManageClaims = profile?.role === "Superadmin" || profile?.role === "Admin";
 
+  const [mitraSelect, setMitraSelect] = useState("");
+  const [mitraPending, setMitraPending] = useState(false);
+  const [mitraError, setMitraError] = useState<string | null>(null);
 
   const [editOpen, setEditOpen] = useState(false);
 
   function reload() {
   return getByAwb(awb ?? "").then((s) => {
   setShipment(s);
+  setMitraSelect(s?.mitraId ?? "");
   return s;
   });
   }
@@ -96,6 +102,7 @@ export default function ShipmentDetail() {
   getByAwb(awb ?? "").then((s) => {
   if (!cancelled) {
   setShipment(s);
+  setMitraSelect(s?.mitraId ?? "");
   setIsLoading(false);
   }
   });
@@ -141,6 +148,26 @@ export default function ShipmentDetail() {
     else setClaimActionError(result.error);
   }
 
+  async function handleAssignMitra() {
+    setMitraPending(true);
+    setMitraError(null);
+    const result = await assignMitra(shipment!.awb, mitraSelect || null);
+    setMitraPending(false);
+    if (result.ok) await reload();
+    else setMitraError(result.error);
+  }
+
+  async function handleUnassignMitra() {
+    setMitraPending(true);
+    setMitraError(null);
+    const result = await assignMitra(shipment!.awb, null);
+    setMitraPending(false);
+    if (result.ok) {
+      setMitraSelect("");
+      await reload();
+    } else setMitraError(result.error);
+  }
+
   if (isLoading) {
     return (
       <AdminLayout>
@@ -181,7 +208,7 @@ export default function ShipmentDetail() {
       },
       { once: true },
     );
-    document.title = "Sistem Tracking & Resi Digital - Sinartrans Logistics";
+    document.title = "Sistem Tracking & Resi Digital - Gmslogistics";
     window.print();
   }
 
@@ -195,15 +222,6 @@ export default function ShipmentDetail() {
       </button>
 
       <div id="awb-print-area" className="awb-print-area">
-      {/* Brand header - only rendered on the printed resi/AWB sheet. */}
-      <div className="mb-5 hidden items-center justify-between gap-4 border-b border-slate-200 pb-4 print:flex">
-        <img src={brandLogo} alt="Sinartrans Logistics" className="h-10 w-auto" />
-        <div className="text-right text-[11px] leading-relaxed text-slate-600">
-          <p className="text-sm font-semibold text-slate-900">PT Sinartrans Logistics</p>
-          <p>Sistem Tracking &amp; Resi Digital</p>
-          <p className="font-mono text-[10px] break-all">{publicTrackingUrl(shipment.awb)}</p>
-        </div>
-      </div>
       <div className="flex flex-wrap items-start justify-between gap-4 print:block">
         <div>
           <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
@@ -464,6 +482,61 @@ export default function ShipmentDetail() {
             </>
             )}
 
+            {profile?.role !== "Viewer" && profile?.role !== "Client" && (
+            <>
+
+            <div className="mt-6 border-t border-slate-100 pt-5 print:hidden">
+              <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                <Handshake size={13} /> Mitra
+              </p>
+
+              {mitraError && <p className="mb-2 text-xs font-medium text-red-600">{mitraError}</p>}
+
+              {canManageClaims ? (
+                <div className="flex flex-wrap items-center gap-2 no-print">
+                  <select
+                    value={mitraSelect}
+                    onChange={(e) => setMitraSelect(e.target.value)}
+                    disabled={mitraPending}
+                    className="min-w-[220px] rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  >
+                    <option value="">- Belum diteruskan ke Mitra -</option>
+                    {activeMitras.map((m) => (
+                      <option key={m.kodeMitra} value={m.kodeMitra}>
+                        {m.nama} ({m.kodeMitra})
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    type="button"
+                    disabled={mitraPending || mitraSelect === (shipment.mitraId ?? "")}
+                    onClick={handleAssignMitra}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-blue-900 px-3 py-2 text-xs font-semibold text-white hover:bg-blue-800 disabled:opacity-60"
+                  >
+                    {mitraPending ? <Loader2 size={13} className="animate-spin" /> : null}
+                    Teruskan ke Mitra
+                  </button>
+                  {shipment.mitraId && (
+                    <button
+                      type="button"
+                      disabled={mitraPending}
+                      onClick={handleUnassignMitra}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 disabled:opacity-60"
+                    >
+                      Batalkan Penugasan
+                    </button>
+                  )}
+                </div>
+              ) : shipment.mitraId ? (
+                <p className="text-sm text-slate-700">
+                  Diteruskan ke <span className="font-semibold">{shipment.mitraNama ?? shipment.mitraId}</span>
+                </p>
+              ) : (
+                <p className="text-sm text-slate-500">Belum diteruskan ke Mitra manapun.</p>
+              )}
+            </div>
+            </>
+            )}
 
             <div className="mt-6 grid grid-cols-2 gap-4 border-t border-slate-100 pt-5 text-sm sm:grid-cols-3">
               <div>

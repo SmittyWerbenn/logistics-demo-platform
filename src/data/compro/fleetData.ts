@@ -1,4 +1,5 @@
 import type { Language } from "../translations";
+import { fleetAssets } from "./assetsMap";
 
 /** Bilingual text. */
 export type L = { id: string; en: string };
@@ -262,7 +263,7 @@ export const fleetData: FleetItem[] = [
   },
 ];
 
-/** One concrete vehicle = one card. Order: light -> heavy. Capacity / length
+/** One concrete vehicle photo = one card. Order: light -> heavy. Capacity / length
  * on the card come from the fleetData items of the same group (no duplicated specs). */
 export interface FleetVehicle {
   id: string;
@@ -270,49 +271,52 @@ export interface FleetVehicle {
   name: string;
   /** Body label(s) shown as badges / in the detail gallery. */
   bodies: string[];
-  /** Branded vector illustration for this body style. */
-  art: TruckArtKind;
+  src: string;
+  alt: string;
 }
 
-const v = (id: string, group: FleetGroup, name: string, bodies: string[], art: TruckArtKind): FleetVehicle => ({
+const v = (id: string, group: FleetGroup, name: string, bodies: string[], file: keyof typeof fleetAssets): FleetVehicle => ({
   id,
   group,
   name,
   bodies,
-  art,
+  src: fleetAssets[file],
+  alt: `Armada ${name} GMS Logistics`,
 });
 
 export const fleetVehicles: FleetVehicle[] = [
-  v("pickup-bak", "pickup", "Pickup Bak", ["Bak"], "pickup"),
-  v("pickup-box", "pickup", "Pickup Box", ["Box"], "pickup"),
-  v("blind-van", "blindvan", "Blind Van", ["Blind Van"], "van"),
-  v("cde-bak-triway", "cde", "CDE Bak Triway", ["Bak", "Triway"], "cde"),
-  v("cdd-bak-sentral", "cdd", "CDD Bak Sentral", ["Bak"], "cdd"),
-  v("cdd-triway", "cdd", "CDD Triway", ["Triway"], "cdd"),
-  v("cdd-box-long", "cdd", "CDD Box Long", ["Box"], "cdd"),
-  v("cdd-losbak", "cdd", "CDD Losbak", ["Losbak"], "cdd"),
-  v("cdd-wingbox", "cdd", "CDD Wingbox", ["Wingbox"], "cdd"),
-  v("fuso-box", "fuso", "Fuso Box", ["Box"], "fuso"),
-  v("fuso-triway", "fuso", "Fuso Triway", ["Triway"], "fuso"),
-  v("fuso-losbak", "fuso", "Fuso Losbak", ["Losbak"], "fuso"),
-  v("fuso-wingbox", "fuso", "Fuso Wingbox", ["Wingbox"], "fuso"),
-  v("tronton-bak-triway", "tronton", "Tronton Bak Triway", ["Bak", "Triway"], "tronton"),
-  v("tronton-losbak", "tronton", "Tronton Losbak", ["Losbak"], "tronton"),
-  v("tronton-wingbox", "tronton", "Tronton Wingbox", ["Wingbox"], "tronton"),
-  v("fuso-reefer", "reefer", "Fuso Reefer Thermo King", ["Reefer"], "reefer"),
-  v("tronton-reefer", "reefer", "Tronton Reefer Thermo King", ["Reefer"], "reefer"),
-  v("trailer-20ft", "trailer", "Trailer 20 Feet", ["20 Feet Flatbed"], "trailer"),
-  v("trailer-40ft", "trailer", "Trailer 40 Feet", ["40 Feet Flatbed"], "trailer"),
-  v("trailer-big-mama", "trailer", "Trailer Big Mama Wingbox", ["Wingbox"], "trailer"),
+  v("pickup-bak", "pickup", "Pickup Bak", ["Bak"], "pickup-bak"),
+  v("pickup-box", "pickup", "Pickup Box", ["Box"], "pickup-box"),
+  v("blind-van", "blindvan", "Blind Van", ["Blind Van"], "blind-van"),
+  v("cde-bak-triway", "cde", "CDE Bak Triway", ["Bak", "Triway"], "cde-bak-triway"),
+  v("cdd-bak-sentral", "cdd", "CDD Bak Sentral", ["Bak"], "cdd-bak-sentral"),
+  v("cdd-triway", "cdd", "CDD Triway", ["Triway"], "cdd-bak-triway"),
+  v("cdd-box-long", "cdd", "CDD Box Long", ["Box"], "cdd-box-long"),
+  v("cdd-losbak", "cdd", "CDD Losbak", ["Losbak"], "cdd-losbak"),
+  v("cdd-wingbox", "cdd", "CDD Wingbox", ["Wingbox"], "cdd-wingbox"),
+  v("fuso-box", "fuso", "Fuso Box", ["Box"], "fuso-box"),
+  v("fuso-triway", "fuso", "Fuso Triway", ["Triway"], "fuso-triway"),
+  v("fuso-losbak", "fuso", "Fuso Losbak", ["Losbak"], "fuso-losbak"),
+  v("fuso-wingbox", "fuso", "Fuso Wingbox", ["Wingbox"], "fuso-wingbox"),
+  v("tronton-bak-triway", "tronton", "Tronton Bak Triway", ["Bak", "Triway"], "tronton-bak-triway"),
+  v("tronton-losbak", "tronton", "Tronton Losbak", ["Losbak"], "tronton-losbak"),
+  v("tronton-wingbox", "tronton", "Tronton Wingbox", ["Wingbox"], "tronton-wingbox"),
+  v("fuso-reefer", "reefer", "Fuso Reefer Thermo King", ["Reefer"], "fuso-refer-termoking"),
+  v("tronton-reefer", "reefer", "Tronton Reefer Thermo King", ["Reefer"], "tronton-refer-termoking"),
+  v("trailer-20ft", "trailer", "Trailer 20 Feet", ["20 Feet Flatbed"], "trailer-20ft"),
+  v("trailer-40ft", "trailer", "Trailer 40 Feet", ["40 Feet Flatbed"], "trailer-40ft"),
+  v("trailer-big-mama", "trailer", "Trailer Big Mama Wingbox", ["Wingbox"], "trailer-big-mama-wingbox"),
   v("lowbed", "heavy", "Lowbed", ["Lowbed"], "lowbed"),
-  v("dolly", "heavy", "Dolly", ["Dolly"], "lowbed"),
+  v("dolly", "heavy", "Dolly", ["Dolly"], "dolly"),
 ];
 
-/** Group meta used by the detail dialog (siblings = every vehicle of the group). */
+/** Group meta used by the detail dialog (gallery = every vehicle of the group). */
 export interface FleetCategory {
   group: FleetGroup;
   name: string;
-  variants: { label: string; art: TruckArtKind }[];
+  hero: string;
+  alt: string;
+  variants: { label: string; src: string }[];
 }
 
 const GROUP_NAMES: Record<FleetGroup, string> = {
@@ -329,7 +333,7 @@ const GROUP_NAMES: Record<FleetGroup, string> = {
 
 export const fleetCategories: FleetCategory[] = (Object.keys(GROUP_NAMES) as FleetGroup[]).map((group) => {
   const vs = fleetVehicles.filter((x) => x.group === group);
-  return { group, name: GROUP_NAMES[group], variants: vs.map((x) => ({ label: x.name, art: x.art })) };
+  return { group, name: GROUP_NAMES[group], hero: vs[0].src, alt: `Armada ${GROUP_NAMES[group]} GMS Logistics`, variants: vs.map((x) => ({ label: x.name, src: x.src })) };
 });
 
 /** Filter tabs (order = display order). */

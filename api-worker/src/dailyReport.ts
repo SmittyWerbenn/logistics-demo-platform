@@ -187,8 +187,8 @@ function buildHtml(opts: {
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <table style="width:100%;max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-    <tr><td style="background:#0b1733;padding:24px 32px;">
-      <p style="margin:0;color:#ee2229;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Sinartrans Logistics</p>
+    <tr><td style="background:#071B41;padding:24px 32px;">
+      <p style="margin:0;color:#D4A72C;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;">GMS Logistics</p>
       <h1 style="margin:8px 0 0;color:#ffffff;font-size:20px;font-weight:700;">Laporan Pengiriman Harian</h1>
     </td></tr>
     <tr><td style="padding:24px 32px;">
@@ -196,10 +196,10 @@ function buildHtml(opts: {
         <tr><td style="padding:4px 0;color:#64748b;width:140px;">Tanggal Laporan</td><td style="padding:4px 0;font-weight:600;">${date}</td></tr>
         <tr><td style="padding:4px 0;color:#64748b;">Jadwal</td><td style="padding:4px 0;font-weight:600;">${slotLabel} WIB</td></tr>
         <tr><td style="padding:4px 0;color:#64748b;">Periode Data</td><td style="padding:4px 0;font-weight:600;">${period}</td></tr>
-        <tr><td style="padding:4px 0;color:#64748b;">Total Pengiriman</td><td style="padding:4px 0;font-weight:700;color:#0b1733;font-size:18px;">${total}</td></tr>
+        <tr><td style="padding:4px 0;color:#64748b;">Total Pengiriman</td><td style="padding:4px 0;font-weight:700;color:#071B41;font-size:18px;">${total}</td></tr>
       </table>
 
-      <h2 style="margin:24px 0 8px;font-size:14px;color:#0b1733;font-weight:600;">Ringkasan Status (saat ini)</h2>
+      <h2 style="margin:24px 0 8px;font-size:14px;color:#071B41;font-weight:600;">Ringkasan Status (saat ini)</h2>
       <p style="margin:0 0 8px;font-size:12px;color:#94a3b8;">Distribusi status terkini dari pengiriman yang tercatat pada periode laporan.</p>
       <table style="width:100%;border-collapse:collapse;font-size:13px;color:#334155;">
         <thead><tr style="background:#f8fafc;">
@@ -209,12 +209,12 @@ function buildHtml(opts: {
         <tbody>${breakdownRows}</tbody>
       </table>
 
-      <div style="margin:24px 0;padding:14px 16px;background:#e6ecf8;border-radius:8px;border:1px solid #cbd5e1;">
-        <p style="margin:0;font-size:13px;color:#0b1733;">📋 Seluruh detail data pengiriman (${total} record) tersedia pada lampiran file CSV di email ini.</p>
+      <div style="margin:24px 0;padding:14px 16px;background:#EAF0F8;border-radius:8px;border:1px solid #cbd5e1;">
+        <p style="margin:0;font-size:13px;color:#071B41;">📋 Seluruh detail data pengiriman (${total} record) tersedia pada lampiran file CSV di email ini.</p>
       </div>
 
       <p style="margin:24px 0 0;font-size:11px;color:#94a3b8;border-top:1px solid #e2e8f0;padding-top:16px;">
-        Email ini dikirim otomatis oleh sistem Sinartrans Logistics kepada akun Sinartrans-Admin &amp; Superadmin yang aktif.
+        Email ini dikirim otomatis oleh sistem GMS Logistics kepada akun GMS-Admin &amp; Superadmin yang aktif.
       </p>
     </td></tr>
   </table>
@@ -395,7 +395,7 @@ export async function runDailyReport(
 
   // 3. Build HTML email body.
   const html = buildHtml({ date, slot, total, rows: shipments });
-  const subject = `Laporan Pengiriman Sinartrans - ${date} (00:00–${slotLabel} WIB)`;
+  const subject = `Laporan Pengiriman GMS - ${date} (00:00–${slotLabel} WIB)`;
 
   // 4. Fetch recipients (active Superadmin + Admin with valid email).
   const recipients = await fetchRecipients(env);

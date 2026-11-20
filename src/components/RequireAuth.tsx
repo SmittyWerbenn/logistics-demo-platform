@@ -146,7 +146,7 @@ export function RequireSuperadmin({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
-/** Rate Publish view access: Superadmin, Admin (Sinartrans-Admin), Viewer, dan Client (Admin Client).
+/** Rate Publish view access: Superadmin, Admin (GMS-Admin), Viewer, dan Client (Admin Client).
  * Semua role ini dapat melihat Rate Publish, namun hanya Superadmin + Admin yang dapat mengubah
  * (ditentukan di komponen halaman dan enforced di backend API).
  *
@@ -173,7 +173,7 @@ export function RequireRatePublish({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
-/** Master Layanan view access: Superadmin, Admin (Sinartrans-Admin), Viewer, dan Client (Admin Client) -
+/** Master Layanan view access: Superadmin, Admin (GMS-Admin), Viewer, dan Client (Admin Client) -
  * sama seperti Rate Publish. Hanya Superadmin + Admin yang boleh menambah/mengubah/menonaktifkan
  * (tombol dan kolom Aksi disembunyikan di halaman, dan ditegakkan ulang di backend API lewat
  * permission `settings.manage`). */

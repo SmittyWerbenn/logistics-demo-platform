@@ -9,7 +9,7 @@ import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 // load - clear it once the app actually mounts so a later, unrelated
 // stale-asset failure in this same tab can still trigger a reload.
 try {
-  sessionStorage.removeItem('snt-stale-asset-reload')
+  sessionStorage.removeItem('gms-stale-asset-reload')
 } catch {
   // ignore - sessionStorage can throw in private/locked-down browsing
 }

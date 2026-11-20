@@ -5,22 +5,22 @@ import type { TruckArtKind } from "../../data/compro/fleetData";
  * when `FleetItem.image` is empty; set a real photo path in fleetData to
  * replace it.
  */
-const NAVY = "#152747";
-const GOLD = "#ee2229";
+const NAVY = "#0B2553";
+const GOLD = "#D4A72C";
 const BODY = "#FFFFFF";
 const GLASS = "#BFD3EE";
 
 function Wheel({ x }: { x: number }) {
   return (
     <g>
-      <circle cx={x} cy={118} r={12} fill="#101a2e" />
-      <circle cx={x} cy={118} r={5} fill="#e6ecf8" />
+      <circle cx={x} cy={118} r={12} fill="#14213D" />
+      <circle cx={x} cy={118} r={5} fill="#EAF0F8" />
     </g>
   );
 }
 
 export function TruckArt({ kind, dark = false }: { kind: TruckArtKind; dark?: boolean }) {
-  const body = dark ? "#253b6d" : BODY;
+  const body = dark ? "#102F63" : BODY;
   const stroke = dark ? GOLD : NAVY;
   const cab = (x: number, w = 44) => (
     <g>

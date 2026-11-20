@@ -230,7 +230,7 @@ export default function FleetList() {
         description={
           !expanded
             ? isClientSide
-              ? "Armada yang ditugaskan khusus untuk Anda oleh Sinartrans."
+              ? "Armada yang ditugaskan khusus untuk Anda oleh GMS."
               : "Kelola data unit truck dan driver."
             : mode === "single"
               ? "Tambah satu unit truck ke master armada."
@@ -546,7 +546,7 @@ export default function FleetList() {
               loadingText="Memuat data armada..."
               icon={Truck}
               title={
-                hasFilter ? "Tidak ada data." : isClientSide ? "Belum ada armada dedicated untuk Anda. Hubungi Sinartrans untuk penugasan armada." : "Belum ada data armada."
+                hasFilter ? "Tidak ada data." : isClientSide ? "Belum ada armada dedicated untuk Anda. Hubungi GMS untuk penugasan armada." : "Belum ada data armada."
               }
               action={
                 !hasFilter && canEdit ? (

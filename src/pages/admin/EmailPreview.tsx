@@ -1,7 +1,7 @@
 import { AlertTriangle, ArrowLeft, CheckCircle2, Loader2, Mail, MapPin, RotateCw, Send } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import brandLogo from "../../assets/logo-sinartrans.webp";
+import logoIcon from "../../assets/icon-mark.png";
 import { AdminLayout } from "../../components/layout/AdminLayout";
 import { useSettings } from "../../store/SettingsContext";
 import { useShipments } from "../../store/ShipmentContext";
@@ -224,9 +224,8 @@ export default function EmailPreview() {
           <div className="bg-slate-100 p-4 sm:p-6">
             <div className="overflow-hidden rounded-lg bg-white shadow-sm">
               <div className="bg-blue-900 px-6 py-5 text-center">
-                <span className="inline-flex items-center rounded-lg bg-white px-3 py-2">
-                  <img src={brandLogo} alt="Sinartrans Logistics" className="h-8 w-auto" />
-                </span>
+                <img src={logoIcon} alt="GMS Logistics" className="mx-auto h-10 w-10 object-contain" />
+                <p className="mt-2 text-sm font-semibold text-white">GMS Logistics</p>
               </div>
 
               <div className="px-6 py-6">
@@ -288,7 +287,7 @@ export default function EmailPreview() {
               </div>
 
               <div className="border-t border-slate-100 bg-slate-50 px-6 py-4 text-center text-[11px] text-slate-400">
-                © {new Date().getFullYear()} PT Sinartrans Logistics · Email otomatis, mohon tidak
+                © {new Date().getFullYear()} PT Gangsar Mitra Suatama · Email otomatis, mohon tidak
                 membalas email ini.
               </div>
             </div>

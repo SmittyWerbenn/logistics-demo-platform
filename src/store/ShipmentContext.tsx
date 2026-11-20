@@ -261,7 +261,7 @@ interface ShipmentContextValue {
     awb: string,
     data: { alamatAsal: string; kotaAsal: string; alamatTujuan: string; kotaTujuan: string },
   ) => Promise<{ ok: true } | { ok: false; error: string }>;
-  /** Client only: asks Sinartrans to restore a cancelled order (does not change the order). */
+  /** Client only: asks GMS to restore a cancelled order (does not change the order). */
   requestRecovery: (awb: string, alasan?: string) => Promise<{ ok: true } | { ok: false; error: string }>;
   updatePodPhoto: (awb: string, slot: "barang" | "suratJalan", fotoDataUrl: string | undefined) => Promise<void>;
   fetchPendingClaims: () => Promise<PendingClaim[]>;

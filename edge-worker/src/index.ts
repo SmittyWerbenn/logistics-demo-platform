@@ -1,27 +1,27 @@
 /**
  * gms-edge - Cloudflare Worker that ties the three app origins together:
  *
- *   1. admin.sinartranslogistics.co.id  -> reverse-proxy to the public SPA on GitHub
- *      Pages (sinartranslogistics.co.id). The browser keeps the admin hostname, so the
+ *   1. admin.gms-logistics.id  -> reverse-proxy to the public SPA on GitHub
+ *      Pages (gms-logistics.id). The browser keeps the admin hostname, so the
  *      app's host-aware routing (src/utils/urls.ts detectPortal) shows the
  *      admin portal instead of the public site.
- *   2. driver.sinartranslogistics.co.id -> same, for the driver portal.
+ *   2. driver.gms-logistics.id -> same, for the driver portal.
  *   3. temp-gms.frel.cloud     -> permanent redirects to the new structure
- *      (/admin* -> admin.sinartranslogistics.co.id, /driver* -> driver.sinartranslogistics.co.id,
- *      everything else -> sinartranslogistics.co.id with the path preserved).
+ *      (/admin* -> admin.gms-logistics.id, /driver* -> driver.gms-logistics.id,
+ *      everything else -> gms-logistics.id with the path preserved).
  *
  * No state, no secrets. The API/email Workers keep their own workers.dev URLs
  * and are called directly by the browser, never through this proxy.
  */
 
-const UPSTREAM = "https://sinartranslogistics.co.id";
+const UPSTREAM = "https://gms-logistics.id";
 
 function isLegacyHost(host: string): boolean {
   return host === "temp-gms.frel.cloud" || host === "www.temp-gms.frel.cloud";
 }
 
 function isPortalHost(host: string): boolean {
-  return host === "admin.sinartranslogistics.co.id" || host === "driver.sinartranslogistics.co.id";
+  return host === "admin.gms-logistics.id" || host === "driver.gms-logistics.id";
 }
 
 export default {
@@ -31,16 +31,16 @@ export default {
 
     // Legacy temporary domain -> permanent redirects to the new structure.
     // Portal prefixes are stripped: the subdomains now serve their portals at
-    // the root (admin.sinartranslogistics.co.id/... instead of /admin/...).
+    // the root (admin.gms-logistics.id/... instead of /admin/...).
     if (isLegacyHost(host)) {
       const path = url.pathname + url.search;
       let target: string;
       if (path.startsWith("/admin")) {
-        target = `https://admin.sinartranslogistics.co.id${path.slice("/admin".length) || "/"}`;
+        target = `https://admin.gms-logistics.id${path.slice("/admin".length) || "/"}`;
       } else if (path.startsWith("/driver")) {
-        target = `https://driver.sinartranslogistics.co.id${path.slice("/driver".length) || "/"}`;
+        target = `https://driver.gms-logistics.id${path.slice("/driver".length) || "/"}`;
       } else {
-        target = `https://sinartranslogistics.co.id${path}`;
+        target = `https://gms-logistics.id${path}`;
       }
       return Response.redirect(target, 301);
     }

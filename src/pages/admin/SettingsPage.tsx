@@ -277,7 +277,7 @@ export default function SettingsPage({ section = "tracking" }: { section?: Setti
                     disabled={!isSuperadmin}
                     value={contact.contactEmail}
                     onChange={(e) => setContact({ ...contact, contactEmail: e.target.value })}
-                    placeholder="cs@sinartranslogistics.co.id"
+                    placeholder="cs@gms-logistics.co.id"
                     className={fieldClass}
                   />
                 </label>
@@ -356,7 +356,7 @@ export default function SettingsPage({ section = "tracking" }: { section?: Setti
                     placeholder="08xxxxxxxxxx"
                     className={fieldClass}
                   />
-                  <span className="mt-1 block text-[11px] text-slate-400">Lupa Password untuk akun Sinartrans-Admin.</span>
+                  <span className="mt-1 block text-[11px] text-slate-400">Lupa Password untuk akun GMS-Admin.</span>
                 </label>
               </div>
             </>

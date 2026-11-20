@@ -78,7 +78,7 @@ export function ContactForm({ prefillMessage }: { prefillMessage: string }) {
     }
     const lines = [
       `📋 *REQUEST QUOTATION*`,
-      `🏢 Sinartrans Logistics`,
+      `🏢 GMS Logistics`,
       ``,
       `👤 ${f.name[language]}: *${v.name}*`,
       v.company && `🏭 ${f.company[language]}: *${v.company}*`,
@@ -136,7 +136,7 @@ export function ContactForm({ prefillMessage }: { prefillMessage: string }) {
     const msg = err ? (err === "required" ? `${label} ${l(f.errors.required)}` : l(f.errors[err])) : "";
     return (
       <div>
-        <label htmlFor={`cf-${k}`} className="mb-1 block text-base font-semibold text-snt-corp">
+        <label htmlFor={`cf-${k}`} className="mb-1 block text-base font-semibold text-gms-corp">
           {label}{" "}
           {opts.optional ? <span className="font-normal text-slate-400">({l(f.optional)})</span> : <span className="text-red-600" aria-hidden>*</span>}
         </label>
@@ -148,7 +148,7 @@ export function ContactForm({ prefillMessage }: { prefillMessage: string }) {
           autoComplete={opts.autoComplete}
           aria-invalid={!!err}
           aria-describedby={err ? `cf-${k}-err` : undefined}
-          className={`min-h-11 w-full rounded-lg border bg-white px-3.5 text-base text-snt-ink focus:outline-none focus:ring-2 ${err ? "border-red-500 focus:ring-red-200" : "border-slate-300 focus:border-snt-accent focus:ring-snt-accent/30"}`}
+          className={`min-h-11 w-full rounded-lg border bg-white px-3.5 text-base text-gms-ink focus:outline-none focus:ring-2 ${err ? "border-red-500 focus:ring-red-200" : "border-slate-300 focus:border-gms-gold focus:ring-gms-gold/30"}`}
         />
         {err && <p id={`cf-${k}-err`} role="alert" className="mt-1 text-xs font-semibold text-red-600">{msg}</p>}
       </div>
@@ -165,9 +165,9 @@ export function ContactForm({ prefillMessage }: { prefillMessage: string }) {
         {field("phone", l(f.phone), { type: "tel", autoComplete: "tel" })}
       </div>
       <div>
-        <label htmlFor="cf-type" className="mb-1 block text-base font-semibold text-snt-corp">{l(f.type)} <span className="text-red-600" aria-hidden>*</span></label>
+        <label htmlFor="cf-type" className="mb-1 block text-base font-semibold text-gms-corp">{l(f.type)} <span className="text-red-600" aria-hidden>*</span></label>
         <select id="cf-type" value={v.type} onChange={set("type")} aria-invalid={!!typeErr} aria-describedby={typeErr ? "cf-type-err" : undefined}
-          className={`min-h-11 w-full rounded-lg border bg-white px-3 text-base text-snt-ink focus:outline-none focus:ring-2 ${typeErr ? "border-red-500 focus:ring-red-200" : "border-slate-300 focus:border-snt-accent focus:ring-snt-accent/30"}`}>
+          className={`min-h-11 w-full rounded-lg border bg-white px-3 text-base text-gms-ink focus:outline-none focus:ring-2 ${typeErr ? "border-red-500 focus:ring-red-200" : "border-slate-300 focus:border-gms-gold focus:ring-gms-gold/30"}`}>
           <option value="">{l(f.choose)}</option>
           {services.map((sv) => <option key={sv.id} value={sv.id}>{typeLabel(sv.id, language)}</option>)}
         </select>
@@ -178,8 +178,8 @@ export function ContactForm({ prefillMessage }: { prefillMessage: string }) {
         {field("destination", l(f.destination))}
       </div>
       <div>
-        <label htmlFor="cf-message" className="mb-1 block text-base font-semibold text-snt-corp">{l(f.message)} <span className="font-normal text-slate-400">({l(f.optional)})</span></label>
-        <textarea id="cf-message" rows={4} value={v.message} onChange={set("message")} className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-snt-ink focus:border-snt-accent focus:outline-none focus:ring-2 focus:ring-snt-accent/30" />
+        <label htmlFor="cf-message" className="mb-1 block text-base font-semibold text-gms-corp">{l(f.message)} <span className="font-normal text-slate-400">({l(f.optional)})</span></label>
+        <textarea id="cf-message" rows={4} value={v.message} onChange={set("message")} className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-gms-ink focus:border-gms-gold focus:outline-none focus:ring-2 focus:ring-gms-gold/30" />
       </div>
       <Captcha ref={captchaRef} idPrefix="cf" value={captchaCode} onChange={(c) => { setCaptchaCode(c); if (c) setCaptchaError(""); }} error={captchaError} />
       {serverError && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm font-semibold text-red-700">{serverError}</p>}
@@ -193,8 +193,8 @@ export function ContactForm({ prefillMessage }: { prefillMessage: string }) {
             : "The WhatsApp CS number has not been configured. Please contact us by email or phone."}
         </p>
       )}
-      {done && <p role="status" className="rounded-lg bg-snt-soft px-3 py-2 text-sm font-semibold text-snt-corp">{l(f.sent)}</p>}
-      <button type="submit" disabled={busy} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-snt-corp px-6 font-bold text-white transition-colors hover:bg-snt-navy disabled:opacity-70">
+      {done && <p role="status" className="rounded-lg bg-gms-soft px-3 py-2 text-sm font-semibold text-gms-corp">{l(f.sent)}</p>}
+      <button type="submit" disabled={busy} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gms-corp px-6 font-bold text-white transition-colors hover:bg-gms-navy disabled:opacity-70">
         {busy && <Loader2 size={16} className="animate-spin" aria-hidden />}
         {busy ? l(f.sending) : l(f.submit)}
       </button>
@@ -215,7 +215,7 @@ export function ContactSection({ prefillMessage }: { prefillMessage: string }) {
     { icon: Clock, label: C.contact.hours, value: contactHours },
   ];
   return (
-    <section id="kontak" className="scroll-mt-16 bg-snt-sky py-20 sm:py-24">
+    <section id="kontak" className="scroll-mt-16 bg-gms-sky py-20 sm:py-24">
       <Container>
         <SectionHeader title={l(C.contact.title)} sub={l(C.contact.sub)} large />
         <div className="mt-12 grid gap-8 lg:grid-cols-5">
@@ -224,10 +224,10 @@ export function ContactSection({ prefillMessage }: { prefillMessage: string }) {
               {items.map((it) => {
                 const body = (
                   <>
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-snt-corp text-snt-light"><it.icon size={19} aria-hidden /></span>
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gms-corp text-gms-light"><it.icon size={19} aria-hidden /></span>
                     <span className="min-w-0">
-                      <span className="block text-sm font-bold uppercase tracking-wider text-snt-accent">{l(it.label)}</span>
-                      <span className="block break-words text-lg font-semibold text-snt-corp">{it.value}</span>
+                      <span className="block text-sm font-bold uppercase tracking-wider text-gms-gold">{l(it.label)}</span>
+                      <span className="block break-words text-lg font-semibold text-gms-corp">{it.value}</span>
                     </span>
                   </>
                 );

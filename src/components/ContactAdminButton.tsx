@@ -6,7 +6,7 @@ import { whatsappUrl } from "../utils/whatsapp";
 
 /**
  * "Lupa Password" / "Hubungi Admin" on the login pages. Nobody is signed in
- * yet, so the WhatsApp number is looked up from the typed email: Sinartrans-Admin
+ * yet, so the WhatsApp number is looked up from the typed email: GMS-Admin
  * accounts go to WhatsApp Superadmin, everyone else to WhatsApp Admin (numbers
  * come from Pengaturan, the mapping lives in the API). When the number is not
  * configured it says so instead of opening an invalid link.
@@ -148,7 +148,7 @@ export function ContactAdminButton({
                   type="button"
                   onClick={handleConfirm}
                   disabled={busy}
-                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#101a2e] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#152340] disabled:opacity-60"
+                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#0B192C] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#0D1B2A] disabled:opacity-60"
                 >
                   {busy ? <Loader2 size={15} className="animate-spin" /> : <MessageCircle size={15} />}
                   Hubungi Admin

@@ -65,7 +65,7 @@ async function statusBeforeCancel(db: D1Database, awb: string): Promise<{ status
 
 export function registerRecoveryRoutes(router: Router) {
   // Client Admin asks for a cancelled order to be restored. The order itself
-  // is NOT touched: it stays "Dibatalkan" until Sinartrans approves.
+  // is NOT touched: it stays "Dibatalkan" until GMS approves.
   router.post("/api/shipments/:awb/recovery-request", async (ctx: Ctx, params) => {
     const actor = requireAuth(ctx);
     if (actor.role !== "Client") throw Errors.forbidden("Hanya Client yang dapat mengajukan pemulihan order.");

@@ -14,7 +14,7 @@ export function fetchCaptcha(): Promise<CaptchaChallenge> {
 /** Tracking CAPTCHA switched off for now (keep in sync with api-worker/src/captcha.ts). */
 export const TRACKING_CAPTCHA_ENABLED = false;
 
-const PASS_KEY = "snt-human-pass";
+const PASS_KEY = "gms-human-pass";
 
 /** A human pass (issued after a solved CAPTCHA) lets the tracking lookup run for a while. */
 export function getHumanPass(): string | null {

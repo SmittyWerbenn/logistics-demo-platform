@@ -9,7 +9,7 @@ interface Settings {
   helpPhoneNumber: string;
   /** WhatsApp Admin - help that needs an Admin (Driver/Client/Viewer/Mitra). */
   helpWhatsAppAdmin: string;
-  /** WhatsApp Superadmin - help for Sinartrans-Admin accounts. */
+  /** WhatsApp Superadmin - help for GMS-Admin accounts. */
   helpWhatsAppSuperadmin: string;
   contactPhone: string;
   contactEmail: string;
@@ -25,7 +25,7 @@ const DEFAULT_SETTINGS: Settings = {
   helpWhatsAppAdmin: "",
   helpWhatsAppSuperadmin: "",
   contactPhone: "021-2200-8899",
-  contactEmail: "cs@sinartranslogistics.co.id",
+  contactEmail: "cs@gms-logistics.co.id",
   contactHours: "Senin - Sabtu, 08.00 - 18.00 WIB",
   headOffice: "Surabaya",
 };

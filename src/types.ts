@@ -118,7 +118,7 @@ export interface Shipment {
   /** Unit the claiming driver would use (Master Armada). */
   claimTruck?: { id: string; nomorUnit: string; jenis: string };
   /** Latest "Request Pemulihan" for a cancelled order. This is a process, not an
-   * order status - the order itself stays Dibatalkan until Sinartrans approves. */
+   * order status - the order itself stays Dibatalkan until GMS approves. */
   recovery?: { status: RecoveryStatus; requestedAt: string; rejectionReason?: string };
   /** Who created the order and in which role - cancellation rules follow the creator. */
   createdByName?: string;
@@ -316,11 +316,11 @@ export const ASSIGNABLE_USER_ROLES: UserRole[] = ["Admin", "Driver", "Viewer", "
 
 /** Display-only label for a role - the underlying value stays "Admin"
  * everywhere in code/DB/API (permission checks, ROLES arrays, etc.); only
- * user-facing text should route through this, to show "Sinartrans-Admin" instead
+ * user-facing text should route through this, to show "GMS-Admin" instead
  * without touching any functional role comparison. */
 const ROLE_DISPLAY_LABEL: Record<UserRole, string> = {
   Superadmin: "Superadmin",
-  Admin: "Sinartrans-Admin",
+  Admin: "GMS-Admin",
   Driver: "Driver",
   Viewer: "Viewer",
   "Client": "Client",

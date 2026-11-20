@@ -1,11 +1,11 @@
 // Demo build: no server. When VITE_DEMO_MODE is not "false", requests are
-// dispatched to the real Sinartrans Worker code running in the browser against a
+// dispatched to the real GMS Worker code running in the browser against a
 // local SQLite database (src/demo/localBackend.ts). Set VITE_DEMO_MODE=false
 // + VITE_API_BASE_URL to talk to a real API instead.
 const DEMO_MODE = ((import.meta.env.VITE_DEMO_MODE as string | undefined) ?? "true") !== "false";
 const API_BASE = ((import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "http://127.0.0.1:8788").replace(/\/$/, "");
 
-const TOKEN_KEY = "snt-demo-session-token";
+const TOKEN_KEY = "gms-demo-session-token";
 
 export function getToken(): string | null {
   try {

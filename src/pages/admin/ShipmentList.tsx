@@ -49,7 +49,7 @@ export default function ShipmentList() {
   const [claimError, setClaimError] = useState<string | null>(null);
 
   // "Ajukan Pemulihan": Client only, cancelled orders without an active request.
-  // The order itself is not touched - Sinartrans Admin / Superadmin decide.
+  // The order itself is not touched - GMS Admin / Superadmin decide.
   const [recoveryTargetAwb, setRecoveryTargetAwb] = useState<string | null>(null);
   const [recoveryPending, setRecoveryPending] = useState(false);
   const [recoveryError, setRecoveryError] = useState<string | null>(null);
@@ -259,7 +259,7 @@ export default function ShipmentList() {
             {shipments.filter((x) => x.cancel?.canDecide && x.cancellation?.status === "PENDING").length} request pembatalan menunggu keputusan Anda
           </p>
           <p className="mt-0.5 text-xs">
-            Sinartrans mengajukan pembatalan untuk order berikut. Buka aksi “Keputusan Pembatalan” pada baris order untuk menerima atau menolak (keterangan wajib).
+            GMS mengajukan pembatalan untuk order berikut. Buka aksi “Keputusan Pembatalan” pada baris order untuk menerima atau menolak (keterangan wajib).
           </p>
         </div>
       )}
@@ -650,7 +650,7 @@ export default function ShipmentList() {
             </h2>
             <p className="mt-3 text-sm text-slate-600">
               Order AWB <span className="font-mono font-semibold">{recoveryTargetAwb}</span> saat ini berstatus Dibatalkan. Apakah Anda
-              yakin ingin mengajukan request untuk memulihkan order ini? Order baru dipulihkan setelah disetujui oleh Sinartrans.
+              yakin ingin mengajukan request untuk memulihkan order ini? Order baru dipulihkan setelah disetujui oleh GMS.
             </p>
             {recoveryError && (
               <p className="mt-3 flex items-center gap-1.5 text-sm font-medium text-red-600">

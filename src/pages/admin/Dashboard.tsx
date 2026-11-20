@@ -14,7 +14,6 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { AdminLayout } from "../../components/layout/AdminLayout";
-import { FinanceReport } from "../../components/FinanceReport";
 import { RefreshButton } from "../../components/RefreshButton";
 import { StagnantShipmentsCard } from "../../components/StagnantShipmentsCard";
 import { StatCard } from "../../components/StatCard";
@@ -111,7 +110,7 @@ export default function Dashboard() {
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">Dashboard</h1>
           <p className="mt-1 text-sm text-slate-500">
-            Ringkasan operasional pengiriman PT Sinartrans Logistics.
+            Ringkasan operasional pengiriman PT Gangsar Mitra Suatama.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -319,7 +318,6 @@ export default function Dashboard() {
           </div>
         )}
       </div>
-      {(profile?.role === "Superadmin" || profile?.role === "Admin") && <FinanceReport />}
     </AdminLayout>
   );
 }

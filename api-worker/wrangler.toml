@@ -1,8 +1,8 @@
-# Sinartrans Demo clone - LOCAL ONLY.
+# GMS Demo clone - LOCAL ONLY.
 # This worker is meant to run with `wrangler dev` against a local D1 database
 # (see README-DEMO.md). Do not deploy it: DEMO_MODE stores uploads in D1 and
 # the seed data is fictional.
-name = "sinartrans-demo-api"
+name = "gms-demo-api"
 main = "src/index.ts"
 compatibility_date = "2026-09-11"
 compatibility_flags = ["nodejs_compat"]
@@ -12,7 +12,7 @@ compatibility_flags = ["nodejs_compat"]
 port = 8788
 
 [vars]
-# Frontend dev server for this clone (the real app uses 5183).
+# Frontend dev server for this clone (real GMS uses 5183).
 ALLOWED_ORIGINS = "http://localhost:5184,http://127.0.0.1:5184"
 SESSION_TTL_HOURS = "24"
 # Demo mode: file uploads are stored in the local D1 `demo_files` table instead
@@ -26,6 +26,6 @@ DAILY_REPORT_ENABLED = "false"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "sinartrans-demo-db"
+database_name = "gms-demo-db"
 # Placeholder - local state lives in .wrangler/state and never reaches Cloudflare.
 database_id = "00000000-0000-0000-0000-000000000000"

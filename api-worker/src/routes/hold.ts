@@ -8,7 +8,7 @@ import { writeAuditLog } from "../audit";
 import { pickupEvidenceSql } from "../cancellation";
 import { HOLDABLE_STATUS, HOLD_PICKED_UP_MESSAGE, HOLD_STATUS, holdPolicy, isHoldOwner, loadHoldRow } from "../hold";
 
-const ROLE_LABEL: Record<string, string> = { Superadmin: "Superadmin", Admin: "Sinartrans-Admin", Client: "Client", Driver: "Driver", Viewer: "Viewer", Mitra: "Mitra" };
+const ROLE_LABEL: Record<string, string> = { Superadmin: "Superadmin", Admin: "GMS-Admin", Client: "Client", Driver: "Driver", Viewer: "Viewer", Mitra: "Mitra" };
 
 function readReason(body: Record<string, unknown>, label: string): string {
   const v = typeof body.alasan === "string" ? body.alasan.trim() : "";

@@ -9,7 +9,7 @@ import { parsePagination, pageMeta } from "../pagination";
 import { wibNow } from "../wib";
 import { CANCELLABLE_STATUS_SQL, PICKED_UP_MESSAGE, cancelPolicy, creatorRoleOf, loadPolicyRow, pickupEvidenceSql } from "../cancellation";
 
-const ROLE_LABEL: Record<string, string> = { Superadmin: "Superadmin", Admin: "Sinartrans-Admin", Client: "Client", Driver: "Driver", Viewer: "Viewer", Mitra: "Mitra" };
+const ROLE_LABEL: Record<string, string> = { Superadmin: "Superadmin", Admin: "GMS-Admin", Client: "Client", Driver: "Driver", Viewer: "Viewer", Mitra: "Mitra" };
 
 function readText(body: Record<string, unknown>, field: string, label: string): string {
   const raw = body[field];
@@ -100,11 +100,11 @@ export function registerCancellationRoutes(router: Router) {
     return ok({ cancelled: true });
   });
 
-  // Sinartrans staff asks the Client to approve cancelling one of the Client's own orders.
+  // GMS staff asks the Client to approve cancelling one of the Client's own orders.
   // The order is not touched here.
   router.post("/api/shipments/:awb/cancel-request", async (ctx: Ctx, params) => {
     const actor = requireAuth(ctx);
-    if (actor.role !== "Superadmin" && actor.role !== "Admin") throw Errors.forbidden("Hanya Superadmin/Sinartrans-Admin yang dapat mengajukan pembatalan.");
+    if (actor.role !== "Superadmin" && actor.role !== "Admin") throw Errors.forbidden("Hanya Superadmin/GMS-Admin yang dapat mengajukan pembatalan.");
     const row = await loadPolicyRow(ctx.env, params.awb);
     if (!row) throw Errors.notFound("AWB tidak ditemukan.");
     const body = await parseJsonBody(ctx.request).catch(() => ({}) as Record<string, unknown>);
@@ -253,7 +253,7 @@ export function registerCancellationRoutes(router: Router) {
     return ok({ status: "WITHDRAWN" });
   });
 
-  // Requests list: a Client sees only its own customer's, Sinartrans staff see all.
+  // Requests list: a Client sees only its own customer's, GMS staff see all.
   router.get("/api/cancellation-requests", async (ctx: Ctx) => {
     const actor = requireAuth(ctx);
     if (actor.role !== "Client" && actor.role !== "Superadmin" && actor.role !== "Admin") throw Errors.forbidden();
