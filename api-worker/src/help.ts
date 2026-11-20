@@ -23,14 +23,14 @@ export const HELP_SETTING_KEY: Record<HelpTarget, string> = {
   superadmin: "help_whatsapp_superadmin",
 };
 
-/** role + topic -> number to contact. "Admin" is shown to users as GMS-Admin. */
+/** role + topic -> number to contact. "Admin" is shown to users as Sinartrans-Admin. */
 const MAPPING: Record<HelpTopic, Partial<Record<Role, HelpTarget>>> = {
   lupa_password: {
     Driver: "admin",
     Client: "admin",
     Viewer: "admin",
     Mitra: "admin",
-    Admin: "superadmin", // GMS-Admin
+    Admin: "superadmin", // Sinartrans-Admin
   },
   kendala: {
     Driver: "admin",

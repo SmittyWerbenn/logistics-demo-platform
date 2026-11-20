@@ -2,10 +2,11 @@ import { adminPath } from "../../utils/urls";
 import { AlertTriangle, Loader2, Mail } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import { useLocation, useNavigate, type Location } from "react-router-dom";
-import logoIcon from "../../assets/icon-mark.png";
+import brandLogo from "../../assets/logo-sinartrans.webp";
 import { useAuth } from "../../store/AuthContext";
 import { PasswordInput } from "../../components/PasswordInput";
 import { ContactAdminButton } from "../../components/ContactAdminButton";
+import { DEMO_ACCOUNTS, DEMO_PASSWORD, DemoAccountHint } from "../../components/DemoAccountHint";
 
 const MAX_WRONG_PASSWORD = 3;
 
@@ -80,9 +81,9 @@ export default function Login() {
     <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-sm rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
         <div className="flex flex-col items-center text-center">
-          <img src={logoIcon} alt="GMS Logistics" className="h-14 w-14 object-contain" />
+          <img src={brandLogo} alt="Sinartrans Logistics" className="h-12 w-auto" />
           <h1 className="mt-4 text-lg font-semibold text-slate-900">Portal Admin</h1>
-          <p className="mt-1 text-sm text-slate-500">GMS Logistics</p>
+          <p className="mt-1 text-sm text-slate-500">Sistem Tracking &amp; Resi Digital</p>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
@@ -97,7 +98,7 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-lg border border-slate-300 py-2.5 pl-9 pr-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
-                placeholder="nama@gms-logistics.id"
+                placeholder="nama@sinartranslogistics.co.id"
               />
             </div>
           </label>
@@ -111,7 +112,7 @@ export default function Login() {
           </label>
 
           {/* Lupa Password: the WhatsApp number depends on the role behind the typed
-              email (GMS-Admin -> Superadmin, everyone else -> Admin). */}
+              email (Sinartrans-Admin -> Superadmin, everyone else -> Admin). */}
           {!emailNotRegistered && (
           <div className="-mt-1 text-right">
             <ContactAdminButton
@@ -120,7 +121,7 @@ export default function Login() {
               confirmFirst
               email={email}
               message={(info) =>
-                `Halo ${info.target === "superadmin" ? "Superadmin" : "Admin"} GMS, saya lupa password akun ${email.trim()}. Mohon bantuannya.`
+                `Halo ${info.target === "superadmin" ? "Superadmin" : "Admin"} Sinartrans, saya lupa password akun ${email.trim()}. Mohon bantuannya.`
               }
             />
           </div>
@@ -145,10 +146,10 @@ export default function Login() {
               message={(info) => {
                 const to = info.target === "superadmin" ? "Superadmin" : "Admin";
                 return clientFrozen
-                  ? `Halo ${to} GMS, akun Client saya (${email}) dinonaktifkan. Mohon bantuannya.`
+                  ? `Halo ${to} Sinartrans, akun Client saya (${email}) dinonaktifkan. Mohon bantuannya.`
                   : mitraFrozen
-                    ? `Halo ${to} GMS, akun Mitra saya (${email}) dinonaktifkan. Mohon bantuannya.`
-                    : `Halo ${to} GMS, saya tidak bisa login (password salah berulang kali) dengan email ${email}. Mohon bantuannya.`;
+                    ? `Halo ${to} Sinartrans, akun Mitra saya (${email}) dinonaktifkan. Mohon bantuannya.`
+                    : `Halo ${to} Sinartrans, saya tidak bisa login (password salah berulang kali) dengan email ${email}. Mohon bantuannya.`;
               }}
             />
           )}
@@ -162,6 +163,17 @@ export default function Login() {
             Masuk
           </button>
         </form>
+
+        {/* Static demo build: the seeded accounts are shown so a visitor can log in
+            without reading the docs. Picking one fills the form. */}
+        <DemoAccountHint
+          accounts={DEMO_ACCOUNTS}
+          onPick={(a) => {
+            setEmail(a.email);
+            setPassword(DEMO_PASSWORD);
+            setError(null);
+          }}
+        />
       </div>
     </div>
   );

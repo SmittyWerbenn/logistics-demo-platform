@@ -10,4 +10,4 @@ Disallow: /driver
 # guidance; Disallow only stops crawling, not indexing/listing of a URL
 # that got linked to from elsewhere.
 
-Sitemap: https://gms-logistics.id/sitemap.xml
+Sitemap: https://sinartranslogistics.co.id/sitemap.xml

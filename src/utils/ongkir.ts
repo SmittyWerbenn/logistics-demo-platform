@@ -1,68 +1,54 @@
 import type { Language } from "../data/translations";
 import { api } from "./apiClient";
 
-/** Answer of POST /api/public/ongkir. The backend (api-worker/src/pricing.ts) is
- * the only place a price is computed; this module just asks and formats. */
+/** Cek Ongkir runs on the Sinar Trans price list (assets/Price List Website Sinar trans.xlsx -> table ongkir_rates).
+ * The backend (api-worker/src/routes/ongkir.ts) is the only place a price is computed; this module asks and formats. */
+export interface OngkirOption {
+  id: string;
+  nama: string;
+}
+
+export interface OngkirDestination {
+  id: number;
+  grup: string;
+  kota: string;
+  minKg: number;
+  estimasi: string;
+}
+
 export interface OngkirEstimate {
-  asal: { provinsi: string; kota: string };
-  tujuan: { provinsi: string; kota: string; kecamatan: string; kategoriArea: string };
+  asal: OngkirOption;
+  mode: OngkirOption;
+  tujuan: { id: number; grup: string; kota: string };
   beratKg: number;
   jumlahKoli: number;
-  layananId: string;
-  layanan: string;
-  hargaPublishPerKg: number;
-  originCategory: "JABODETABEK" | "JAWA" | "LUAR_JAWA";
-  markupPersen: number;
-  hargaSetelahPenyesuaianPerKg: number;
-  chargeableKg: number;
-  /** LTL minimum billing weight (Jawa 50 / Luar Jawa 100 / Pelosok Terjauh 300); 0 for other layanan. */
+  volumetricKg: number;
   minimumKg: number;
-  minimumKategori: string | null;
-  /** false = this layanan has no Rate Publish (Rp0). */
-  ratePublishTersedia: boolean;
-  biayaKoli: number;
+  chargeableKg: number;
+  tarifPerKg: number;
   total: number;
+  estimasi: string;
   leadTimeMin: number;
   leadTimeMax: number;
 }
 
 export interface OngkirRequest {
-  asal: { provinsi: string; kota: string };
-  tujuan: { provinsi: string; kota: string; kecamatan: string };
+  hub: string;
+  mode: string;
+  rateId: number;
   beratKg: number;
   jumlahKoli: number;
-  /** Master Layanan id (the API validates it: active entries only). */
-  layananId: string;
+  panjangCm?: number;
+  lebarCm?: number;
+  tinggiCm?: number;
 }
 
-/** Jenis layanan = the active entries of Master Layanan (Portal Admin), already in display order. */
-export async function fetchLayananOptions(): Promise<Array<{ id: string; nama: string }>> {
-  const res = await api.get<{ items: Array<{ id: string; nama: string }> }>("/api/public/ongkir/layanan", { auth: false });
-  return res.items;
-}
-
-/** Minimum billing weight of a route (origin + destination, per layanan), decided by the API (0 = none / not decidable yet). */
-export async function fetchMinimumWeight(params: { provinsi: string; kota?: string; asalProvinsi?: string; asalKota?: string; layananId: string }): Promise<{ minimumKg: number; minimumKategori: string | null }> {
-  const qs = new URLSearchParams({ provinsi: params.provinsi, layananId: params.layananId });
-  if (params.kota) qs.set("kota", params.kota);
-  if (params.asalProvinsi) qs.set("asalProvinsi", params.asalProvinsi);
-  if (params.asalKota) qs.set("asalKota", params.asalKota);
-  return api.get(`/api/public/ongkir/minimum?${qs.toString()}`, { auth: false });
+export function fetchOngkirTujuan(hub: string, mode: string): Promise<{ hubs: OngkirOption[]; modes: OngkirOption[]; items: OngkirDestination[] }> {
+  return api.get(`/api/public/ongkir/tujuan?hub=${encodeURIComponent(hub)}&mode=${encodeURIComponent(mode)}`, { auth: false });
 }
 
 export function fetchOngkir(req: OngkirRequest): Promise<OngkirEstimate> {
   return api.post<OngkirEstimate>("/api/public/ongkir", req, { auth: false });
-}
-
-/** One level of the wilayah tree: provinces, then kab/kota of a province, then
- * kecamatan of a kab/kota. */
-export async function fetchWilayah(provinsi?: string, kota?: string): Promise<string[]> {
-  const params = new URLSearchParams();
-  if (provinsi) params.set("provinsi", provinsi);
-  if (provinsi && kota) params.set("kota", kota);
-  const qs = params.toString();
-  const res = await api.get<{ items: string[] }>(`/api/public/ongkir/wilayah${qs ? `?${qs}` : ""}`, { auth: false });
-  return res.items;
 }
 
 export function estimasiHariLabel(min: number, max: number, language: Language): string {

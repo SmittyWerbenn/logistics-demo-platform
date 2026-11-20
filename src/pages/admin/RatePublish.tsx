@@ -71,13 +71,13 @@ const fmtIso = (iso: string) => {
  *
  * Access Control (ditegakkan ulang di backend API):
  * - Superadmin: VIEW + EDIT (kolom Aksi, Bulk Update, Unduh Data)
- * - Admin (GMS-Admin): VIEW + Unduh Data - tanpa kolom Aksi dan tanpa Bulk Update
+ * - Admin (Sinartrans-Admin): VIEW + Unduh Data - tanpa kolom Aksi dan tanpa Bulk Update
  * - Viewer + Client (Admin Client): VIEW ONLY (tanpa kolom Diperbarui/Aksi, tanpa Bulk Update/Unduh Data)
  */
 export default function RatePublish() {
   const toast = useToast();
   const { profile } = useAuth();
-  // Diperbarui + Unduh Data: Superadmin & Admin (GMS-Admin).
+  // Diperbarui + Unduh Data: Superadmin & Admin (Sinartrans-Admin).
   const canManage = profile?.role === "Superadmin" || profile?.role === "Admin";
   // Ubah Rate Publish (kolom Aksi) + Bulk Update: Superadmin saja.
   const canEdit = profile?.role === "Superadmin";
@@ -327,7 +327,7 @@ export default function RatePublish() {
             <th className="px-4 py-3 font-medium">Kategori</th>
             <th className="px-4 py-3 font-medium">Lead Time</th>
             <th className="px-4 py-3 text-right font-medium">Rate Publish / kg</th>
-            {/* Diperbarui untuk Superadmin + Admin (GMS-Admin); Viewer + Client view-only tanpa kolom ini.
+            {/* Diperbarui untuk Superadmin + Admin (Sinartrans-Admin); Viewer + Client view-only tanpa kolom ini.
                 Aksi (ubah rate) hanya Superadmin. */}
             {canManage && <th className="px-4 py-3 font-medium">Diperbarui</th>}
             {canEdit && <th className="px-4 py-3 font-medium">Aksi</th>}

@@ -19,10 +19,21 @@ export function exportDriverShipmentsPdf(
   filename = "data-kiriman-saya.pdf",
 ) {
   const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+  doc.setProperties({
+    title: `Data Pengiriman - ${meta.driverNama}`,
+    creator: "Sinartrans Logistics",
+    subject: "Data Pengiriman - Sinartrans Logistics",
+  });
+  const rightEdge = doc.internal.pageSize.getWidth() - 14;
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(14);
+  doc.setTextColor(37, 59, 109);
   doc.text("Data Pengiriman", 14, 15);
+
+  doc.setFontSize(10);
+  doc.text("Sinartrans Logistics", rightEdge, 15, { align: "right" });
+  doc.setTextColor(0);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
@@ -59,7 +70,7 @@ export function exportDriverShipmentsPdf(
       s.estimasiTiba ? formatTanggalPanjang(s.estimasiTiba) : "Belum tersedia",
     ]),
     styles: { fontSize: 9, cellPadding: 2.5 },
-    headStyles: { fillColor: [23, 37, 84], textColor: 255, fontStyle: "bold" },
+    headStyles: { fillColor: [37, 59, 109], textColor: 255, fontStyle: "bold" },
     alternateRowStyles: { fillColor: [248, 250, 252] },
     margin: { left: 14, right: 14 },
   });

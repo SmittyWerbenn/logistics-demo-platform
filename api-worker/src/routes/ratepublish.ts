@@ -6,19 +6,19 @@ import { newId } from "../crypto";
 import { requirePermission } from "../authMiddleware";
 
 /** Rate Publish VIEW access: semua role dengan permission `settings.view`
- * (Superadmin, Admin/GMS-Admin, Viewer, Client/Admin Client). */
+ * (Superadmin, Admin/Sinartrans-Admin, Viewer, Client/Admin Client). */
 function requireRatePublishView(ctx: Ctx) {
   return requirePermission(ctx, "settings.view");
 }
 
 /** Rate Publish EXPORT access (unduh data, tidak mengubah apa pun): permission
- * `settings.manage` - Superadmin + Admin (GMS-Admin)/GMS-Admin. */
+ * `settings.manage` - Superadmin + Admin (Sinartrans-Admin)/Sinartrans-Admin. */
 function requireRatePublishManage(ctx: Ctx) {
   return requirePermission(ctx, "settings.manage");
 }
 
 /** Rate Publish WRITE access (ubah Harga Publish + Bulk Update): Superadmin SAJA.
- * Admin (GMS-Admin) hanya melihat (settings.view) dan mengunduh data
+ * Admin (Sinartrans-Admin) hanya melihat (settings.view) dan mengunduh data
  * (settings.manage/export) - nilai Rate Publish tidak bisa diubahnya. */
 function requireRatePublishEdit(ctx: Ctx): AuthedUser {
   const actor = requireRatePublishManage(ctx);
@@ -47,9 +47,9 @@ import { parsePagination, pageMeta, likeTerm, orderBy } from "../pagination";
  * request (no cache), so an edit is live immediately. Shipments store no prices, so past orders are untouched.
  *
  * Access Control (berdasarkan permission RBAC existing):
- * - VIEW (settings.view):     Superadmin, Admin (GMS-Admin), Viewer, Client (Admin Client)
- * - EXPORT (settings.manage): Superadmin + Admin (GMS-Admin) - unduh data saja, tidak mengubah nilai
- * - WRITE/EDIT:               Superadmin SAJA (Admin/GMS-Admin, Viewer, Client tidak dapat mengubah)
+ * - VIEW (settings.view):     Superadmin, Admin (Sinartrans-Admin), Viewer, Client (Admin Client)
+ * - EXPORT (settings.manage): Superadmin + Admin (Sinartrans-Admin) - unduh data saja, tidak mengubah nilai
+ * - WRITE/EDIT:               Superadmin SAJA (Admin/Sinartrans-Admin, Viewer, Client tidak dapat mengubah)
  */
 const MAX_RATE = 10_000_000;
 const MAX_BULK_ROWS = 10000;

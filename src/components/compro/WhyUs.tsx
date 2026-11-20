@@ -6,12 +6,12 @@ export function BenefitCard({ n, icon: Icon, title, desc, delay, className = "" 
   n: number; icon: React.ComponentType<{ size?: number; "aria-hidden"?: boolean }>; title: string; desc: string; delay: number; className?: string;
 }) {
   return (
-    <Reveal delay={delay} className={`group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-gms-gold/60 hover:bg-white/10 ${className}`}>
+    <Reveal delay={delay} className={`group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-snt-accent/60 hover:bg-white/10 ${className}`}>
       <div className="flex items-start justify-between">
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gms-gold/15 text-gms-light">
+        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-snt-accent/15 text-snt-light">
           <Icon size={22} aria-hidden />
         </span>
-        <span className="font-display text-4xl font-extrabold text-gms-gold/80">{String(n).padStart(2, "0")}</span>
+        <span className="font-display text-4xl font-extrabold text-snt-accent/80">{String(n).padStart(2, "0")}</span>
       </div>
       <h3 className="mt-5 font-display text-xl font-bold text-white">{title}</h3>
       <p className="mt-2 text-base leading-relaxed text-blue-100/75">{desc}</p>
@@ -22,8 +22,8 @@ export function BenefitCard({ n, icon: Icon, title, desc, delay, className = "" 
 export function WhyUs() {
   const l = useL();
   return (
-    <section id="keunggulan" className="relative scroll-mt-16 overflow-hidden bg-gms-corp py-20 sm:py-24">
-      <div aria-hidden className="absolute -left-20 top-0 h-full w-40 skew-x-[-18deg] bg-gms-navy/60" />
+    <section id="keunggulan" className="relative scroll-mt-16 overflow-hidden bg-snt-corp py-20 sm:py-24">
+      <div aria-hidden className="absolute -left-20 top-0 h-full w-40 skew-x-[-18deg] bg-snt-navy/60" />
       <Container className="relative">
         <SectionHeader dark title={l(C.why.title)} sub={l(C.why.sub)} />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

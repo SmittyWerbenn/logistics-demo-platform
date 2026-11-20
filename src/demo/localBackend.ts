@@ -2,7 +2,7 @@
  * Browser-only backend for the static demo build.
  *
  * Instead of calling a deployed API, every request is dispatched to the REAL
- * GMS Cloudflare Worker (api-worker/src, imported as a module) running inside
+ * Sinartrans Cloudflare Worker (api-worker/src, imported as a module) running inside
  * the page. Its D1 binding is sql.js/SQLite persisted to IndexedDB, and files
  * are stored in the same database (DEMO_MODE in api-worker/src/storage.ts).
  *
@@ -27,8 +27,8 @@ const workerModules = import.meta.glob("../../api-worker/src/index.ts", { eager:
 const workerApp = Object.values(workerModules)[0]?.default;
 
 /** Bump when seed data or the schema changes, to force a fresh local DB. */
-const DEMO_DB_VERSION = 1;
-const IDB_NAME = "gms-demo";
+const DEMO_DB_VERSION = 4;
+const IDB_NAME = "snt-demo";
 const IDB_STORE = "kv";
 const IDB_KEY = "database";
 

@@ -74,8 +74,8 @@ export default function TrackingResult() {
   // never surface shipment details in search results, so always noindex.
   useSeo({
     title: shipment
-      ? `Tracking ${shipment.awb} | GMS Logistics`
-      : `AWB ${awb} - ${t.trackingResult.notFoundTitle} | GMS Logistics`,
+      ? `Tracking ${shipment.awb} | Sinartrans Logistics`
+      : `AWB ${awb} - ${t.trackingResult.notFoundTitle} | Sinartrans Logistics`,
     description: shipment
       ? `Status pengiriman AWB ${shipment.awb}: ${shipment.status}. Dari ${shipment.kotaAsal} ke ${shipment.kotaTujuan}.`
       : t.trackingResult.notFoundDesc,
@@ -121,7 +121,7 @@ export default function TrackingResult() {
     return (
       <PublicLayout>
         <div className="mx-auto flex max-w-sm flex-col items-center py-10 text-center">
-          <ShieldCheck size={40} className="text-gms-gold" />
+          <ShieldCheck size={40} className="text-snt-accent" />
           <h1 className="mt-4 text-xl font-semibold text-slate-800">Verifikasi Keamanan</h1>
           <p className="mt-1 text-base sm:text-lg text-slate-500">
             Untuk melihat status AWB <span className="font-mono font-medium text-slate-700">{awb}</span>, masukkan kode pada gambar.
@@ -131,7 +131,7 @@ export default function TrackingResult() {
             <button
               type="submit"
               disabled={checking}
-              className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gms-corp px-6 text-base sm:text-lg font-bold text-white hover:bg-gms-deep disabled:opacity-60"
+              className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-snt-corp px-6 text-base sm:text-lg font-bold text-white hover:bg-snt-deep disabled:opacity-60"
             >
               <Search size={15} /> {checking ? "Memproses..." : t.trackingSearch.submitButton}
             </button>

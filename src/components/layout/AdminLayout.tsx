@@ -21,11 +21,10 @@ import {
   Truck,
   Users,
   X,
-  Image as ImageIcon,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import logoIcon from "../../assets/icon-mark.png";
+import brandLogo from "../../assets/logo-sinartrans.webp";
 import { useAuth } from "../../store/AuthContext";
 import { roleLabel, type UserRole } from "../../types";
 import { ROLE_ACTIVE_CLASS, ROLE_BADGE_CLASS, ROLE_BAR_CLASS } from "../../utils/roleTheme";
@@ -47,7 +46,7 @@ interface NavItem {
 // Every role except Mitra - used for items a Mitra account shouldn't see
 // but that stay open to everyone else (no admin-only intent otherwise).
 const NON_MITRA_ROLES: UserRole[] = ["Superadmin", "Admin", "Driver", "Viewer", "Client"];
-// Superadmin + Admin (GMS-Admin) - the existing gate for these items, kept
+// Superadmin + Admin (Sinartrans-Admin) - the existing gate for these items, kept
 // identical after the menu regroup (moved menus never gain access).
 const ADMIN_ONLY_ROLES: UserRole[] = ["Superadmin", "Admin"];
 // Menu Rate Publish & Master Layanan: Superadmin, Admin, Viewer, Client
@@ -92,12 +91,21 @@ function getNavGroups(role: UserRole): { title: string; items: NavItem[] }[] {
       ],
     },
     {
+      title: "Ekspedisi",
+      items: [
+        { to: adminPath("/ekspedisi/orders"), label: "Order & Resi", icon: Truck, end: true, roles: ADMIN_ONLY_ROLES },
+        { to: adminPath("/ekspedisi/customers"), label: "Master Customer", icon: Building2, end: true, roles: ADMIN_ONLY_ROLES },
+        { to: adminPath("/ekspedisi/routes"), label: "Master Rute", icon: Truck, end: true, roles: ADMIN_ONLY_ROLES },
+        { to: adminPath("/ekspedisi/prices"), label: "Master Harga", icon: Handshake, end: true, roles: ADMIN_ONLY_ROLES },
+        { to: adminPath("/ekspedisi/piutang"), label: "Piutang (PAD)", icon: Building2, end: true, roles: ADMIN_ONLY_ROLES },
+        { to: adminPath("/ekspedisi/settings"), label: "Pengaturan Ekspedisi", icon: Users, end: true, roles: ["Superadmin"] },
+      ],
+    },
+    {
       title: "Manajemen User",
       items: [
         { to: adminPath("/users"), label: "User Admin", icon: Users, end: true, roles: ADMIN_ONLY_ROLES },
         { to: adminPath("/users-driver"), label: "User Driver", icon: Truck, end: true, roles: ADMIN_ONLY_ROLES },
-        { to: adminPath("/customer"), label: "Clients", icon: Building2, end: true, roles: ADMIN_ONLY_ROLES },
-        { to: adminPath("/mitra"), label: "Mitra", icon: Handshake, end: true, roles: ADMIN_ONLY_ROLES },
       ],
     },
     {
@@ -108,8 +116,6 @@ function getNavGroups(role: UserRole): { title: string; items: NavItem[] }[] {
         { to: adminPath("/pengaturan/tracking"), label: "Tracking", icon: Settings, end: true, roles: ADMIN_ONLY_ROLES },
         { to: adminPath("/pengaturan/informasi-cs"), label: "Informasi CS", icon: Headset, end: true, roles: ADMIN_ONLY_ROLES },
         { to: adminPath("/pengaturan/info-bantuan"), label: "Informasi Bantuan", icon: LifeBuoy, end: true, roles: ADMIN_ONLY_ROLES },
-        // Client logo management on the Company Profile - Superadmin only.
-        { to: adminPath("/company-profile"), label: "Client Company Profile", icon: ImageIcon, end: true, roles: ["Superadmin"] },
       ],
     },
     {
@@ -175,11 +181,8 @@ export function AdminLayout({ children }: { children: ReactNode }) {
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
           <div className="flex min-w-0 items-center gap-2.5">
-            <img src={logoIcon} alt="GMS Logistics" className="h-9 w-9 shrink-0 object-contain" />
-            <div className="min-w-0 leading-tight">
-              <p className="truncate text-sm font-semibold text-slate-900">GMS Logistics</p>
-              <p className="hidden truncate text-xs text-slate-500 sm:block">Sistem Tracking &amp; Resi Digital</p>
-            </div>
+            <img src={brandLogo} alt="Sinartrans Logistics" className="h-8 w-auto shrink-0 sm:h-10" />
+            <p className="hidden truncate text-xs text-slate-500 sm:block">Sistem Tracking &amp; Resi Digital</p>
           </div>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
@@ -259,7 +262,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
           </nav>
           <div className="mx-4 mt-2 rounded-lg bg-slate-50 p-4 text-xs text-slate-500">
             <p className={`inline-block rounded-full px-2 py-0.5 font-medium ${ROLE_BADGE_CLASS[profile.role]}`}>{roleLabel(profile.role)}</p>
-            <p className="mt-1">Sistem Tracking &amp; Resi Digital &mdash; PT Gangsar Mitra Suatama.</p>
+            <p className="mt-1">Sistem Tracking &amp; Resi Digital &mdash; PT Sinartrans Logistics.</p>
           </div>
         </aside>
 

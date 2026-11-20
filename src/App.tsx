@@ -18,11 +18,15 @@ import { UserManagementProvider } from "./store/UserManagementContext";
 
 import AccountSettings from "./pages/admin/AccountSettings";
 import AuditLogPage from "./pages/admin/AuditLogPage";
-import ClientCompanyProfile from "./pages/admin/ClientCompanyProfile";
 import RecycleBin from "./pages/admin/RecycleBin";
 import { ToastProvider } from "./components/Toast";
 import CreateShipment from "./pages/admin/CreateShipment";
-import CustomerList from "./pages/admin/CustomerList";
+import EpCustomers from "./pages/admin/ekspedisi/EpCustomers";
+import EpRoutes from "./pages/admin/ekspedisi/EpRoutes";
+import EpPrices from "./pages/admin/ekspedisi/EpPrices";
+import EpOrders from "./pages/admin/ekspedisi/EpOrders";
+import EpReceivables from "./pages/admin/ekspedisi/EpReceivables";
+import EpSettings from "./pages/admin/ekspedisi/EpSettings";
 import Dashboard from "./pages/admin/Dashboard";
 import EmailPreview from "./pages/admin/EmailPreview";
 import FeedbackAdmin from "./pages/admin/FeedbackAdmin";
@@ -30,7 +34,6 @@ import FleetList from "./pages/admin/FleetList";
 import LayananList from "./pages/admin/LayananList";
 import LocationList from "./pages/admin/LocationList";
 import Login from "./pages/admin/Login";
-import MitraList from "./pages/admin/MitraList";
 import NotificationCenter from "./pages/admin/NotificationCenter";
 import SettingsPage from "./pages/admin/SettingsPage";
 import RatePublish from "./pages/admin/RatePublish";
@@ -54,7 +57,7 @@ import { ADMIN_BASE_URL, DRIVER_BASE_URL, adminPath, detectPortal, driverPath } 
 
 /**
  * On the PUBLIC domain, the /admin and /driver portals must not be reachable
- * under gms-logistics.id - bounce any such path to the correct subdomain,
+ * under sinartranslogistics.co.id - bounce any such path to the correct subdomain,
  * stripping the portal prefix (they now live at the subdomain root).
  * Cross-origin, so use a full navigation.
  */
@@ -156,15 +159,18 @@ export default function App() {
               <Route path={adminPath("/armada")} element={<RequireNotMitra><FleetList /></RequireNotMitra>} />
               <Route path={adminPath("/armada/:id")} element={<RequireNotMitra><TruckHistory /></RequireNotMitra>} />
               <Route path={adminPath("/kota")} element={<RequireAuth><LocationList /></RequireAuth>} />
-              <Route path={adminPath("/customer")} element={<RequireAdmin><CustomerList /></RequireAdmin>} />
-              <Route path={adminPath("/mitra")} element={<RequireAdmin><MitraList /></RequireAdmin>} />
+              <Route path={adminPath("/ekspedisi/orders")} element={<RequireAdmin><EpOrders /></RequireAdmin>} />
+              <Route path={adminPath("/ekspedisi/customers")} element={<RequireAdmin><EpCustomers /></RequireAdmin>} />
+              <Route path={adminPath("/ekspedisi/routes")} element={<RequireAdmin><EpRoutes /></RequireAdmin>} />
+              <Route path={adminPath("/ekspedisi/prices")} element={<RequireAdmin><EpPrices /></RequireAdmin>} />
+              <Route path={adminPath("/ekspedisi/piutang")} element={<RequireAdmin><EpReceivables /></RequireAdmin>} />
+              <Route path={adminPath("/ekspedisi/settings")} element={<RequireSuperadmin><EpSettings /></RequireSuperadmin>} />
               <Route path={adminPath("/layanan")} element={<RequireLayananView><LayananList /></RequireLayananView>} />
               <Route path={adminPath("/notifikasi")} element={<RequireAuth><NotificationCenter /></RequireAuth>} />
               <Route path={adminPath("/feedback")} element={<RequireAuth><FeedbackAdmin /></RequireAuth>} />
               <Route path={adminPath("/audit-log")} element={<RequireAdmin><AuditLogPage /></RequireAdmin>} />
               <Route path={adminPath("/users")} element={<RequireAdmin><UserManagement /></RequireAdmin>} />
               <Route path={adminPath("/recycle-bin")} element={<RequireSuperadmin><RecycleBin /></RequireSuperadmin>} />
-              <Route path={adminPath("/company-profile")} element={<RequireSuperadmin><ClientCompanyProfile /></RequireSuperadmin>} />
               <Route path={adminPath("/pemulihan-order")} element={<RequireAdmin><RecoveryRequests /></RequireAdmin>} />
               <Route path={adminPath("/users-driver")} element={<RequireAdmin><DriverUserManagement /></RequireAdmin>} />
               <Route path={adminPath("/rate-publish")} element={<RequireRatePublish><RatePublish /></RequireRatePublish>} />

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { journeySteps } from "../../data/compro/journeySteps";
 import { useLanguage } from "../../store/LanguageContext";
-import { journeyAssets } from "../../data/compro/assetsMap";
+import { JourneyArt } from "./JourneyArt";
 
 const carouselStyles = `
   @keyframes glowPulse {
@@ -53,14 +53,14 @@ export function JourneyCarousel() {
   return (
     <>
       <style>{carouselStyles}</style>
-      <div className="relative w-full bg-gradient-to-b from-[#EAF0F8] to-white py-12 md:py-16">
+      <div className="relative w-full bg-gradient-to-b from-[#e6ecf8] to-white py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#071B41] mb-3">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0b1733] mb-3">
               {language === "id"
-                ? "Perjalanan Pengiriman Bersama GMS Logistics"
-                : "Shipping Journey with GMS Logistics"}
+                ? "Perjalanan Pengiriman Bersama Sinartrans Logistics"
+                : "Shipping Journey with Sinartrans Logistics"}
             </h2>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
               {language === "id"
@@ -74,13 +74,13 @@ export function JourneyCarousel() {
             <div className="flex justify-center px-2">
               <div className="relative w-full max-w-4xl">
                 {/* Background connector line - container */}
-                <div className="absolute top-6 left-0 right-0 h-1 bg-[#D4C5A9] rounded-full" 
+                <div className="absolute top-6 left-0 right-0 h-1 bg-[#dce3f0] rounded-full" 
                   style={{ top: '28px', zIndex: 0 }}
                 />
 
                 {/* Active progress line */}
                 <div 
-                  className="absolute h-1 bg-gradient-to-r from-[#0B2553] to-[#D4A72C] rounded-full transition-all duration-700"
+                  className="absolute h-1 bg-gradient-to-r from-[#152747] to-[#ee2229] rounded-full transition-all duration-700"
                   style={{
                     top: '28px',
                     left: 0,
@@ -107,7 +107,7 @@ export function JourneyCarousel() {
                             setIsAutoPlay(false);
                             setTimeout(() => setIsAutoPlay(true), 8000);
                           }}
-                          className="relative z-20 flex-shrink-0 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#D4A72C] focus:ring-offset-2 rounded-full"
+                          className="relative z-20 flex-shrink-0 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#ee2229] focus:ring-offset-2 rounded-full"
                         >
                           {/* Glow effect for active */}
                           {isActive && (
@@ -126,10 +126,10 @@ export function JourneyCarousel() {
                           <div
                             className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold font-display transition-all duration-300 shadow-md flex-shrink-0 ${
                               isActive
-                                ? "bg-[#071B41] text-white ring-4 ring-[#D4A72C] shadow-lg scale-110"
+                                ? "bg-[#0b1733] text-white ring-4 ring-[#ee2229] shadow-lg scale-110"
                                 : isPassed
-                                  ? "bg-[#0B2553] text-white"
-                                  : "bg-white border-2 border-[#D4C5A9] text-[#071B41] hover:border-[#D4A72C]"
+                                  ? "bg-[#152747] text-white"
+                                  : "bg-white border-2 border-[#dce3f0] text-[#0b1733] hover:border-[#ee2229]"
                             }`}
                           >
                             {isPassed ? (
@@ -145,9 +145,9 @@ export function JourneyCarousel() {
                           <span
                             className={`absolute right-1/2 top-1 origin-top-right -rotate-45 whitespace-nowrap text-xs sm:static sm:rotate-0 sm:whitespace-normal sm:text-sm md:text-base font-bold uppercase tracking-normal sm:tracking-wider transition-all duration-300 leading-tight ${
                               isActive
-                                ? "text-[#071B41] scale-105 font-display"
+                                ? "text-[#0b1733] scale-105 font-display"
                                 : isPassed
-                                  ? "text-[#0B2553] font-semibold"
+                                  ? "text-[#152747] font-semibold"
                                   : "text-[#7A8A9E] font-semibold"
                             }`}
                           >
@@ -186,18 +186,15 @@ export function JourneyCarousel() {
                                 : "opacity-0 scale-95"
                         }`}
                       >
-                        {/* Image - contain to prevent cropping */}
-                        <img
-                          src={journeyAssets[s.id]}
-                          alt={s.imageAlt[language]}
-                          loading="lazy"
-                          className="w-full h-full object-contain bg-gradient-to-b from-slate-100 to-slate-50"
-                        />
+                        {/* Branded illustration - contain to prevent cropping */}
+                        <div className="w-full h-full bg-gradient-to-b from-slate-100 to-slate-50">
+                          <JourneyArt step={s} />
+                        </div>
 
                         {/* Step label - bottom left corner */}
                         <div className="absolute bottom-4 left-4 z-20 bg-black/60 backdrop-blur px-3 py-2 rounded-lg">
-                          <p className="text-xs font-bold text-[#D4A72C] uppercase tracking-wide whitespace-nowrap">
-                            {`${String(currentIdx + 1).padStart(2, "0")} - ${s.short[language]}`}
+                          <p className="text-xs font-bold text-[#ee2229] uppercase tracking-wide whitespace-nowrap">
+                            {`${String(idx + 1).padStart(2, "0")} - ${s.short[language]}`}
                           </p>
                         </div>
                       </div>
@@ -208,7 +205,7 @@ export function JourneyCarousel() {
                 {/* Navigation Buttons */}
                 <button
                   onClick={handlePrev}
-                  className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white text-[#071B41] p-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
+                  className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white text-[#0b1733] p-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
                   aria-label="Previous step"
                 >
                   <ChevronLeft size={24} />
@@ -216,7 +213,7 @@ export function JourneyCarousel() {
 
                 <button
                   onClick={handleNext}
-                  className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white text-[#071B41] p-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
+                  className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 bg-white/90 hover:bg-white text-[#0b1733] p-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
                   aria-label="Next step"
                 >
                   <ChevronRight size={24} />
@@ -234,7 +231,7 @@ export function JourneyCarousel() {
                       }}
                       className={`transition-all duration-500 rounded-full ${
                         idx === currentIdx
-                          ? "w-8 h-3 bg-[#D4A72C] shadow-lg"
+                          ? "w-8 h-3 bg-[#ee2229] shadow-lg"
                           : "w-3 h-3 bg-white/60 hover:bg-white/80"
                       }`}
                       aria-label={`Go to step ${idx + 1}`}

@@ -71,10 +71,10 @@ export function Clients() {
 export function CTASection() {
   const l = useL();
   return (
-    <section aria-labelledby="cta-title" className="relative isolate overflow-hidden bg-gms-deep py-20 text-white sm:py-28">
-      <div aria-hidden className="absolute -left-20 top-0 -z-10 h-full w-56 skew-x-[-18deg] bg-gms-gold" />
-      <div aria-hidden className="absolute left-32 top-0 -z-10 h-full w-10 skew-x-[-18deg] bg-gms-light/50 max-sm:hidden" />
-      <div aria-hidden className="absolute -right-16 top-0 -z-10 h-full w-72 skew-x-[-18deg] bg-gms-navy" />
+    <section aria-labelledby="cta-title" className="relative isolate overflow-hidden bg-snt-deep py-20 text-white sm:py-28">
+      <div aria-hidden className="absolute -left-20 top-0 -z-10 h-full w-56 skew-x-[-18deg] bg-snt-accent" />
+      <div aria-hidden className="absolute left-32 top-0 -z-10 h-full w-10 skew-x-[-18deg] bg-snt-light/50 max-sm:hidden" />
+      <div aria-hidden className="absolute -right-16 top-0 -z-10 h-full w-72 skew-x-[-18deg] bg-snt-navy" />
       <Container className="text-center">
         <Reveal>
           <h2 id="cta-title" className="mx-auto max-w-3xl font-display text-4xl font-extrabold leading-tight sm:text-6xl">
@@ -82,10 +82,10 @@ export function CTASection() {
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-xl text-blue-100/85">{l(C.cta.sub)}</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <button type="button" onClick={() => scrollToSection("kontak")} className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-gms-gold px-8 text-lg font-bold text-gms-deep shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gms-bright">
+            <button type="button" onClick={() => scrollToSection("kontak")} className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-snt-accent px-8 text-lg font-bold text-snt-deep shadow-lg transition-all hover:-translate-y-0.5 hover:bg-snt-bright">
               {l(C.cta.quote)} <ArrowRight size={18} aria-hidden />
             </button>
-            <button type="button" onClick={() => scrollToSection("kontak")} className="inline-flex min-h-14 items-center justify-center rounded-lg border-2 border-white/70 px-8 text-lg font-bold transition-colors hover:border-gms-light hover:text-gms-light">
+            <button type="button" onClick={() => scrollToSection("kontak")} className="inline-flex min-h-14 items-center justify-center rounded-lg border-2 border-white/70 px-8 text-lg font-bold transition-colors hover:border-snt-light hover:text-snt-light">
               {l(C.cta.contact)}
             </button>
           </div>

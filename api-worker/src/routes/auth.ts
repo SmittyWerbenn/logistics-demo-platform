@@ -61,7 +61,7 @@ export function registerAuthRoutes(router: Router) {
           : `Login ditolak untuk ${email}: Mitra ${user.mitra_id} nonaktif.`,
       }, ip);
       throw Errors.forbidden(
-        clientFrozen ? "Akun Client Anda dinonaktifkan. Hubungi admin GMS." : "Akun Mitra Anda dinonaktifkan. Hubungi admin GMS.",
+        clientFrozen ? "Akun Client Anda dinonaktifkan. Hubungi admin Sinartrans." : "Akun Mitra Anda dinonaktifkan. Hubungi admin Sinartrans.",
       );
     }
     if (!user) {

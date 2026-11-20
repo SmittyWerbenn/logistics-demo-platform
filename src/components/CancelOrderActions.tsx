@@ -69,7 +69,7 @@ export function CancelOrderActions({ shipment, onDone, variant = "icon" }: Props
       <Row k="AWB" v={shipment.awb} mono />
       <Row k="Rute" v={`${shipment.kotaAsal} → ${shipment.kotaTujuan}`} />
       <Row k="Status" v={shipment.status} />
-      <Row k="Dibuat oleh" v={`${shipment.createdByName ?? "-"}${shipment.createdByRole ? ` (${shipment.createdByRole === "Admin" ? "GMS-Admin" : shipment.createdByRole})` : ""}`} />
+      <Row k="Dibuat oleh" v={`${shipment.createdByName ?? "-"}${shipment.createdByRole ? ` (${shipment.createdByRole === "Admin" ? "Sinartrans-Admin" : shipment.createdByRole})` : ""}`} />
     </dl>
   );
 
@@ -186,7 +186,7 @@ function DecisionModal({
         <dl className="mt-3 space-y-1 rounded-lg bg-slate-50 p-3 text-sm">
           <div className="flex gap-2"><dt className="w-24 shrink-0 text-xs text-slate-500">AWB</dt><dd className="font-mono font-medium text-slate-800">{shipment.awb}</dd></div>
           <div className="flex gap-2"><dt className="w-24 shrink-0 text-xs text-slate-500">Order</dt><dd className="font-medium text-slate-800">Pengiriman {shipment.kotaAsal} → {shipment.kotaTujuan}</dd></div>
-          <div className="flex gap-2"><dt className="w-24 shrink-0 text-xs text-slate-500">Diajukan oleh</dt><dd className="font-medium text-slate-800">{req.requestedBy} ({req.requestedByRole === "Admin" ? "GMS-Admin" : req.requestedByRole})</dd></div>
+          <div className="flex gap-2"><dt className="w-24 shrink-0 text-xs text-slate-500">Diajukan oleh</dt><dd className="font-medium text-slate-800">{req.requestedBy} ({req.requestedByRole === "Admin" ? "Sinartrans-Admin" : req.requestedByRole})</dd></div>
           <div className="flex gap-2"><dt className="w-24 shrink-0 text-xs text-slate-500">Tanggal</dt><dd className="font-medium text-slate-800">{fmtIso(req.requestedAt)}</dd></div>
           <div className="flex gap-2"><dt className="w-24 shrink-0 text-xs text-slate-500">Alasan</dt><dd className="font-medium text-slate-800">“{req.reason}”</dd></div>
         </dl>
@@ -240,7 +240,7 @@ export function CancellationInfo({ shipment }: { shipment: Props["shipment"] }) 
   const req = shipment.cancellation;
   const note = shipment.cancel?.blockedReason;
   const creator = shipment.createdByName
-    ? `${shipment.createdByName} - ${shipment.createdByRole === "Admin" ? "GMS-Admin" : shipment.createdByRole ?? "-"}`
+    ? `${shipment.createdByName} - ${shipment.createdByRole === "Admin" ? "Sinartrans-Admin" : shipment.createdByRole ?? "-"}`
     : shipment.createdByRole === "Client"
       ? "Client"
       : "-";
@@ -265,7 +265,7 @@ export function CancellationInfo({ shipment }: { shipment: Props["shipment"] }) 
           <div>
             <dt className="text-xs text-slate-500">Diajukan oleh</dt>
             <dd className="font-medium text-slate-800">
-              {req.requestedBy} ({req.requestedByRole === "Admin" ? "GMS-Admin" : req.requestedByRole}) · {fmtIso(req.requestedAt)}
+              {req.requestedBy} ({req.requestedByRole === "Admin" ? "Sinartrans-Admin" : req.requestedByRole}) · {fmtIso(req.requestedAt)}
             </dd>
           </div>
           <div>

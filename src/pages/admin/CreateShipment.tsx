@@ -665,7 +665,7 @@ export default function CreateShipment() {
             />
             <p className="mt-1.5 text-[11px] text-slate-400">
               {isCustAdmin
-                ? "Opsional. Hanya armada dedicated yang ditugaskan GMS untuk Anda yang bisa dipilih."
+                ? "Opsional. Hanya armada dedicated yang ditugaskan Sinartrans untuk Anda yang bisa dipilih."
                 : `Opsional. Kosongkan supaya pengiriman ini masuk ke daftar "Pesanan Terbuka" - semua driver
               bisa melihat dan mengajukan klaim, lalu Anda tinggal konfirmasi siapa yang mengambilnya.`}
             </p>

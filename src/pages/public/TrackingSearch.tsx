@@ -23,7 +23,7 @@ import { useSeo } from "../../utils/seo";
 export default function TrackingSearch() {
   const { t, language } = useLanguage();
   useSeo({
-    title: language === "id" ? "Tracking Pengiriman | GMS Logistics" : "Shipment Tracking | GMS Logistics",
+    title: language === "id" ? "Tracking Pengiriman | Sinartrans Logistics" : "Shipment Tracking | Sinartrans Logistics",
     description: t.trackingSearch.heroDesc,
     path: "/tracking",
   });
@@ -86,7 +86,7 @@ export default function TrackingSearch() {
       <Navbar overlay={false} />
       <main>
         {/* Hero */}
-        <section className="relative isolate overflow-hidden bg-gms-deep pb-16 pt-24 sm:pb-20 sm:pt-28">
+        <section className="relative isolate overflow-hidden bg-snt-deep pb-16 pt-24 sm:pb-20 sm:pt-28">
           <img
             src={heroImage}
             alt=""
@@ -94,13 +94,13 @@ export default function TrackingSearch() {
             loading="eager"
             className="absolute inset-0 h-full w-full object-cover opacity-25"
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-gms-deep via-gms-deep/90 to-gms-corp/60" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-snt-deep via-snt-deep/90 to-snt-corp/60" />
 
           {/* Decorative route line - desktop only, purely visual */}
           <div aria-hidden className="pointer-events-none absolute right-10 top-10 hidden items-center gap-2 lg:flex">
-            <MapPin size={18} className="text-gms-light" />
-            <span className="block h-px w-16 border-t border-dashed border-gms-light/50" />
-            <MapPin size={18} className="text-gms-gold" />
+            <MapPin size={18} className="text-snt-light" />
+            <span className="block h-px w-16 border-t border-dashed border-snt-light/50" />
+            <MapPin size={18} className="text-snt-accent" />
           </div>
 
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
@@ -113,11 +113,11 @@ export default function TrackingSearch() {
 
             <div className="mt-6 grid grid-cols-1 items-center gap-10 lg:grid-cols-5">
               <div className="text-center lg:col-span-3 lg:text-left">
-                <p className="inline-flex items-center gap-2 rounded-full border border-gms-gold/40 bg-gms-gold/10 px-3.5 py-1.5 text-sm sm:text-base font-bold uppercase tracking-[0.14em] text-gms-light">
+                <p className="inline-flex items-center gap-2 rounded-full border border-snt-accent/40 bg-snt-accent/10 px-3.5 py-1.5 text-sm sm:text-base font-bold uppercase tracking-[0.14em] text-snt-light">
                   <Search size={13} /> {t.nav.trackPackage}
                 </p>
                 <h1 className="mt-4 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-                  {t.trackingSearch.heroTitle} <span className="text-gms-bright">{t.trackingSearch.heroTitleGold}</span>
+                  {t.trackingSearch.heroTitle} <span className="text-snt-bright">{t.trackingSearch.heroTitleGold}</span>
                 </h1>
                 <p className="mx-auto mt-3 max-w-md text-base sm:text-lg leading-relaxed text-blue-100/90 sm:text-lg lg:mx-0">
                   {t.trackingSearch.heroDesc}
@@ -135,10 +135,10 @@ export default function TrackingSearch() {
                       placeholder={t.trackingSearch.placeholder}
                       aria-label="AWB"
                       autoComplete="off"
-                      className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 text-lg text-slate-900 focus:border-gms-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gms-gold/20"
+                      className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 text-lg text-slate-900 focus:border-snt-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-snt-accent/20"
                     />
                     {scanNotice && gate.needsCaptcha && (
-                      <p role="status" className="rounded-lg bg-gms-soft px-3 py-2 text-sm sm:text-base font-semibold text-gms-corp">
+                      <p role="status" className="rounded-lg bg-snt-soft px-3 py-2 text-sm sm:text-base font-semibold text-snt-corp">
                         {language === "id" ? `AWB ${scanNotice} terbaca. Masukkan kode verifikasi lalu tekan Lacak.` : `AWB ${scanNotice} scanned. Enter the verification code, then press Track.`}
                       </p>
                     )}
@@ -148,7 +148,7 @@ export default function TrackingSearch() {
                     <button
                       type="submit"
                       disabled={checking}
-                      className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-gms-corp px-6 py-3 text-base sm:text-lg font-bold text-white shadow-lg transition-all hover:bg-gms-deep disabled:opacity-60"
+                      className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-snt-corp px-6 py-3 text-base sm:text-lg font-bold text-white shadow-lg transition-all hover:bg-snt-deep disabled:opacity-60"
                     >
                       <Search size={16} />
                       {checking ? (language === "id" ? "Memproses..." : "Processing...") : t.trackingSearch.submitButton}
@@ -186,11 +186,11 @@ export default function TrackingSearch() {
           <div className="grid gap-4 sm:grid-cols-3">
             {features.map((f) => (
               <div key={f.title} className="flex items-start gap-3 rounded-2xl bg-white p-4 shadow-lg ring-1 ring-black/5 sm:p-5">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gms-corp text-gms-light">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-snt-corp text-snt-light">
                   <f.icon size={19} />
                 </span>
                 <div>
-                  <p className="text-base sm:text-lg font-bold text-gms-corp">{f.title}</p>
+                  <p className="text-base sm:text-lg font-bold text-snt-corp">{f.title}</p>
                   <p className="mt-0.5 text-sm sm:text-base leading-relaxed text-slate-500">{f.desc}</p>
                 </div>
               </div>
@@ -218,7 +218,7 @@ export default function TrackingSearch() {
                 {history.map((h) => (
                   <div
                     key={h.awb}
-                    className="flex items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm transition-colors hover:border-gms-gold/50 hover:bg-gms-sky"
+                    className="flex items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm transition-colors hover:border-snt-accent/50 hover:bg-snt-sky"
                   >
                     <button
                       onClick={() => navigate(`/tracking/${h.awb}`)}

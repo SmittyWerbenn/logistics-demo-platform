@@ -1,5 +1,4 @@
 import { ClipboardList, Navigation, PackageCheck, Smartphone, Truck, Warehouse, type LucideIcon } from "lucide-react";
-import { COMPRO_IMAGES } from "./imagesData";
 import type { L } from "./fleetData";
 
 export interface JourneyStep {
@@ -10,16 +9,12 @@ export interface JourneyStep {
   description: L;
   /** Status badge text (system status wording). */
   status: string;
-  /** Photo path in /public (e.g. "/journey/order.jpg"). Empty -> branded illustration. */
-  image?: string;
-  imageAlt: L;
   icon: LucideIcon;
 }
 
 /**
  * ==== JOURNEY STEPS - edit here only ====
- * Set `image` to a real photo path to replace the illustration; no component
- * change needed.
+ * Timeline steps for the company profile; rendered as branded illustrations.
  */
 export const journeySteps: JourneyStep[] = [
   {
@@ -31,8 +26,6 @@ export const journeySteps: JourneyStep[] = [
       en: "The operations team processes shipment details, prepares the fleet, and schedules the trip.",
     },
     status: "ORDER CREATED",
-    image: COMPRO_IMAGES.journey.order.url,
-    imageAlt: COMPRO_IMAGES.journey.order.alt as any,
     icon: ClipboardList,
   },
   {
@@ -44,8 +37,6 @@ export const journeySteps: JourneyStep[] = [
       en: "Goods are prepared and loaded onto the vehicle according to shipment needs.",
     },
     status: "PICKUP",
-    image: COMPRO_IMAGES.journey.pickup.url,
-    imageAlt: COMPRO_IMAGES.journey.pickup.alt as any,
     icon: Warehouse,
   },
   {
@@ -57,8 +48,6 @@ export const journeySteps: JourneyStep[] = [
       en: "The driver carries the goods to the destination with periodically monitored progress.",
     },
     status: "IN TRANSIT",
-    image: COMPRO_IMAGES.journey.transit.url,
-    imageAlt: COMPRO_IMAGES.journey.transit.alt as any,
     icon: Truck,
   },
   {
@@ -70,8 +59,6 @@ export const journeySteps: JourneyStep[] = [
       en: "Trip status, location, and shipment information are updated periodically through the system.",
     },
     status: "LIVE UPDATE",
-    image: COMPRO_IMAGES.journey.update.url,
-    imageAlt: COMPRO_IMAGES.journey.update.alt as any,
     icon: Smartphone,
   },
   {
@@ -83,8 +70,6 @@ export const journeySteps: JourneyStep[] = [
       en: "The vehicle arrives at the destination and the handover is prepared.",
     },
     status: "ARRIVED",
-    image: COMPRO_IMAGES.journey.arrived.url,
-    imageAlt: COMPRO_IMAGES.journey.arrived.alt as any,
     icon: Navigation,
   },
   {
@@ -96,8 +81,6 @@ export const journeySteps: JourneyStep[] = [
       en: "Goods are received by the recipient with a documented handover.",
     },
     status: "DELIVERED",
-    image: COMPRO_IMAGES.journey.delivered.url,
-    imageAlt: COMPRO_IMAGES.journey.delivered.alt as any,
     icon: PackageCheck,
   },
 ];

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { About } from "../../components/compro/About";
-import { Clients, CTASection } from "../../components/compro/Clients";
+import { CTASection } from "../../components/compro/Clients";
 import { ContactSection } from "../../components/compro/ContactSection";
 import { Coverage } from "../../components/compro/Coverage";
 import { Fleet, FleetFinder } from "../../components/compro/Fleet";
@@ -62,8 +62,8 @@ export default function Home() {
   );
 
   return (
-    <div className="compro min-h-screen bg-white font-sans text-gms-ink">
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-gms-gold focus:px-4 focus:py-2 focus:font-bold focus:text-gms-deep">
+    <div className="compro min-h-screen bg-white font-sans text-snt-ink">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-snt-accent focus:px-4 focus:py-2 focus:font-bold focus:text-snt-deep">
         {l(C.nav.skip)}
       </a>
       <Navbar overlay />
@@ -77,7 +77,6 @@ export default function Home() {
         <FleetStats />
         <FleetFinder onPick={setGroup} />
         <Coverage />
-        <Clients />
         <CTASection />
         <ContactSection prefillMessage={prefill} />
       </main>

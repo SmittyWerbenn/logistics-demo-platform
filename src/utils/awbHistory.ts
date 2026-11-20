@@ -6,7 +6,7 @@ export interface AwbHistoryEntry {
   lastViewedAt: string; // ISO
 }
 
-const KEY = "gms-customer-awb-history";
+const KEY = "snt-customer-awb-history";
 const MAX_ENTRIES = 20;
 
 export function getAwbHistory(): AwbHistoryEntry[] {

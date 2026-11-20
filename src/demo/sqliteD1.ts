@@ -1,7 +1,7 @@
 /**
  * Minimal D1Database shim backed by sql.js (SQLite compiled to WASM).
  *
- * The demo has no server: the real GMS Cloudflare Worker code is imported
+ * The demo has no server: the real Sinartrans Cloudflare Worker code is imported
  * into the browser and this shim stands in for the D1 binding, so every API
  * route (RBAC, validation, AWB numbering, audit log, ...) runs exactly as in
  * production - just against an in-memory SQLite database that is persisted to

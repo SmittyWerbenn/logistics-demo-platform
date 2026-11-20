@@ -35,7 +35,7 @@ function createHandler(env: Record<string, string>): Connect.NextHandleFunction 
   // senderName brands the email body (header bar, "Dari" field, footer);
   // fromName is only the SMTP From mailbox display name shown in the inbox
   // list, which can be a different, independently-verified sender identity.
-  const senderName = env.BREVO_SENDER_NAME || "PT Gangsar Mitra Suatama";
+  const senderName = env.BREVO_SENDER_NAME || "PT Sinartrans Logistics";
   const fromName = env.BREVO_FROM_NAME || senderName;
   // Demo clone: never send real email from the demo. The UI's "kirim email"
   // button still succeeds so the flow can be shown end-to-end.

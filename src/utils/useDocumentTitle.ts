@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_NAME = "Gmslogistics";
+const SITE_NAME = "Sinartrans Logistics";
 
 /** Sets the browser tab title for the current page (lightweight, CSR-only SEO aid). */
 export function useDocumentTitle(title: string) {

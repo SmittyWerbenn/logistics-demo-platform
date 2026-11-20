@@ -82,7 +82,7 @@ export function useSeo(opts: SeoOptions) {
     setMetaByName("description", opts.description);
     setMetaByName("robots", robots);
     setCanonical(canonicalUrl);
-    setMetaByProperty("og:site_name", "GMS Logistics");
+    setMetaByProperty("og:site_name", "Sinartrans Logistics");
     setMetaByProperty("og:title", opts.title);
     setMetaByProperty("og:description", opts.description);
     setMetaByProperty("og:type", opts.ogType ?? "website");

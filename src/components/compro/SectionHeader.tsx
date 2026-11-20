@@ -22,7 +22,7 @@ export function SectionHeader({
     <Reveal className={`${center ? "mx-auto text-center" : ""} max-w-3xl`}>
       <H
         className={`font-display font-extrabold leading-tight tracking-tight ${large ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl"} ${
-          dark ? "text-white" : "text-gms-corp"
+          dark ? "text-white" : "text-snt-corp"
         }`}
       >
         {title}

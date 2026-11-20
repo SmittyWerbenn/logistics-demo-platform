@@ -87,7 +87,7 @@ export default {
 
       const recipientRole: EmailRecipientRole =
         data.recipientRole === "pengirim" || data.recipientRole === "admin" ? data.recipientRole : "penerima";
-      const senderName = env.BREVO_SENDER_NAME || "PT Gangsar Mitra Suatama";
+      const senderName = env.BREVO_SENDER_NAME || "PT Sinartrans Logistics";
       const fromName = env.BREVO_FROM_NAME || senderName;
 
       const html = buildEmailHtml({
@@ -152,7 +152,7 @@ export default {
         return json({ ok: false, error: "Data laporan tidak lengkap (to/subject/html/csvContent/csvFilename wajib diisi)." }, 400, cors);
       }
 
-      const senderName = env.BREVO_SENDER_NAME || "PT Gangsar Mitra Suatama";
+      const senderName = env.BREVO_SENDER_NAME || "PT Sinartrans Logistics";
       const fromName = env.BREVO_FROM_NAME || senderName;
 
       try {

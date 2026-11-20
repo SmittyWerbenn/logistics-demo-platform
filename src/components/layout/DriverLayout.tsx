@@ -3,7 +3,7 @@ import { ROLE_BAR_CLASS } from "../../utils/roleTheme";
 import { LogOut } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
-import logoIcon from "../../assets/icon-mark.png";
+import brandLogo from "../../assets/logo-sinartrans.webp";
 import { useAuth } from "../../store/AuthContext";
 import { HeaderClock } from "../HeaderClock";
 import { LogoutConfirm } from "../LogoutConfirm";
@@ -28,8 +28,7 @@ export function DriverLayout({ children, wide = false }: { children: ReactNode; 
       <header className={`no-print sticky top-0 z-20 border-b border-t-4 border-slate-200 ${ROLE_BAR_CLASS.Driver} bg-white px-4`}>
         <div className={`mx-auto flex h-14 items-center justify-between ${wide ? "max-w-4xl" : "max-w-2xl"}`}>
           <div className="flex min-w-0 items-center gap-2">
-            <img src={logoIcon} alt="GMS Logistics" className="h-7 w-7 shrink-0 object-contain" />
-            <span className="truncate text-sm font-semibold text-slate-900">GMS Logistics</span>
+            <img src={brandLogo} alt="Sinartrans Logistics" className="h-8 w-auto shrink-0" />
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <HeaderClock />

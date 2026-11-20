@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     // build time (the deploy workflow does this); default is the domain root.
     base: (env.VITE_BASE_PATH as string | undefined) || "/",
     plugins: [react(), tailwindcss(), emailApiPlugin(env)],
-    // Demo clone: fixed port so it can run side by side with the real GMS
+    // Demo clone: fixed port so it can run side by side with the real Sinartrans
     // instance (which uses 5183) without collision.
     server: { port: 5184, strictPort: true },
     preview: { port: 5184, strictPort: true },

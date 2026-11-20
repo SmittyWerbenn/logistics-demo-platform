@@ -1,9 +1,9 @@
-# GMS Demo — Panduan Menjalankan & Presentasi
+# Sinartrans Demo — Panduan Menjalankan & Presentasi
 
 **Live demo:** https://logistics-demo.frel.cloud/
 
-Demo statis GMS Logistics. **Tanpa backend, tanpa database server** — seluruh
-logika API GMS (RBAC, validasi, nomor AWB, audit log) dijalankan di browser
+Demo statis Sinartrans Logistics. **Tanpa backend, tanpa database server** — seluruh
+logika API Sinartrans (RBAC, validasi, nomor AWB, audit log) dijalankan di browser
 memakai kode Worker asli, dengan database SQLite (WASM) yang disimpan di
 IndexedDB browser. Cocok untuk GitHub Pages.
 
@@ -49,14 +49,14 @@ Semua akun memakai password yang sama: **`Demo2026!`**
 
 | Role | Email | Akses |
 |---|---|---|
-| Superadmin | `superadmin@gms-demo.id` | Semua menu, termasuk Rate Publish, User, Audit Log, Recycle Bin |
-| Admin (GMS-Admin) | `admin@gms-demo.id` | Operasional: pengiriman, armada, klaim, feedback |
-| Admin (GMS-Admin) | `ops@gms-demo.id` | Sama seperti di atas (contoh admin kedua) |
-| Viewer | `viewer@gms-demo.id` | Lihat data, tanpa membuat/mengubah pengiriman |
-| Client | `client@gms-demo.id` | Hanya data PT Acme Retail Indonesia (12 resi) |
-| Client | `client2@gms-demo.id` | Hanya data PT Nusantara Distribusi Utama (7 resi) |
-| Driver | `driver@gms-demo.id` | Portal Driver, unit B 9012 KCD (5 pengiriman) |
-| Mitra | `mitra@gms-demo.id` | Hanya 2 resi yang diteruskan ke MITRA01 |
+| Superadmin | `superadmin@sinartrans-demo.id` | Semua menu, termasuk Rate Publish, User, Audit Log, Recycle Bin |
+| Admin (Sinartrans-Admin) | `admin@sinartrans-demo.id` | Operasional: pengiriman, armada, klaim, feedback |
+| Admin (Sinartrans-Admin) | `ops@sinartrans-demo.id` | Sama seperti di atas (contoh admin kedua) |
+| Viewer | `viewer@sinartrans-demo.id` | Lihat data, tanpa membuat/mengubah pengiriman |
+| Client | `client@sinartrans-demo.id` | Hanya data PT Acme Retail Indonesia (12 resi) |
+| Client | `client2@sinartrans-demo.id` | Hanya data PT Nusantara Distribusi Utama (7 resi) |
+| Driver | `driver@sinartrans-demo.id` | Portal Driver, unit B 9012 KCD (5 pengiriman) |
+| Mitra | `mitra@sinartrans-demo.id` | Hanya 2 resi yang diteruskan ke MITRA01 |
 
 > Driver **wajib** login lewat Portal Driver (`/driver/login`), bukan portal admin.
 
@@ -85,18 +85,18 @@ Semua akun memakai password yang sama: **`Demo2026!`**
 1. **Publik** — buka `/`, tunjukkan hero, layanan, armada, coverage, lalu
    **Cek Ongkir** (Jakarta → Surabaya) dan **Lacak Resi** `ACME0010`
    (status Selesai + Proof of Delivery) atau `ACME0006` (Transit).
-2. **Client** — login `client@gms-demo.id`: dashboard hanya berisi 12 resi
+2. **Client** — login `client@sinartrans-demo.id`: dashboard hanya berisi 12 resi
    Acme; buat pengiriman baru (nomor AWB otomatis `ACME0013`), lalu buka
    halaman tracking-nya.
-3. **Admin** — login `admin@gms-demo.id`: dashboard 29 resi, 5 AWB macet,
+3. **Admin** — login `admin@sinartrans-demo.id`: dashboard 29 resi, 5 AWB macet,
    rating 4.6; Data Pengiriman → filter status; buka detail `ACME0006` →
    update tracking; konfirmasi klaim driver `ACME0003`; tangani permintaan
    pembatalan `ACME0002` atau pemulihan order `ACME0012`.
-4. **Driver** — login `driver@gms-demo.id`: unit B 9012 KCD, 5 pengiriman,
+4. **Driver** — login `driver@sinartrans-demo.id`: unit B 9012 KCD, 5 pengiriman,
    ambil foto bukti (tersimpan lokal), update status sampai POD.
-5. **Superadmin** — login `superadmin@gms-demo.id`: Rate Publish, User,
+5. **Superadmin** — login `superadmin@sinartrans-demo.id`: Rate Publish, User,
    Audit Log, Recycle Bin, Client Company Profile, Pengaturan.
-6. **Mitra** — login `mitra@gms-demo.id`: hanya 2 resi yang diteruskan.
+6. **Mitra** — login `mitra@sinartrans-demo.id`: hanya 2 resi yang diteruskan.
 
 Tips: siapkan dua jendela browser (publik + admin) agar perubahan status
 langsung terlihat di tracking publik setelah refresh.
@@ -105,11 +105,11 @@ langsung terlihat di tracking publik setelah refresh.
 
 ## 5. Reset & penyimpanan data
 
-- Data demo tersimpan **per browser** (IndexedDB, key `gms-demo`). Refresh
+- Data demo tersimpan **per browser** (IndexedDB, key `snt-demo`). Refresh
   tidak menghapus data; perubahan (buat resi, update tracking, upload foto)
   tetap ada.
 - Reset ke kondisi awal: buka `http://localhost:5184/admin/login?reset=1`
-  (atau `/driver/login?reset=1`). Bisa juga hapus database `gms-demo` di
+  (atau `/driver/login?reset=1`). Bisa juga hapus database `snt-demo` di
   DevTools → Application → IndexedDB.
 - Mode Incognito selalu mulai dari data bersih.
 - Bump `DEMO_DB_VERSION` di `src/demo/localBackend.ts` bila seed berubah, agar
@@ -122,7 +122,7 @@ langsung terlihat di tracking publik setelah refresh.
 ```
 Browser
 ├── React SPA (src/)
-├── src/demo/localBackend.ts  → memuat kode Worker GMS asli di browser
+├── src/demo/localBackend.ts  → memuat kode Worker Sinartrans asli di browser
 │     ├── api-worker/src/...  (routing, RBAC, validasi, audit — sama dgn produksi)
 │     ├── sqliteD1.ts         (shim D1Database di atas sql.js/SQLite WASM)
 │     └── IndexedDB           (persistensi database demo)
@@ -141,3 +141,22 @@ Browser
 
 Kode `api-worker/` masih bisa dijalankan dengan `wrangler dev` (D1 lokal)
 untuk debugging backend, tetapi **tidak diperlukan** untuk demo/GitHub Pages.
+
+## Modul Ekspedisi — Order & Price Management
+
+Modul ini mengikuti *Ekspedisi — Order & Price Management System Product Brief*: bukan TMS (tanpa tracking driver / fleet),
+fokusnya menyimpan pengetahuan operasional admin agar operasional tidak bergantung pada satu orang.
+
+Menu admin: **Ekspedisi** → Order & Resi, Master Customer, Master Rute, Master Harga, Piutang (PAD), Pengaturan (Owner).
+
+- **Master Customer / Rute / Harga** — harga hidup berdasarkan rute + pengirim + penerima + pembayar (+ berat / jenis barang).
+  Urutan fallback: *exact* → *rute + pengirim* → *harga publish rute* → *manual*.
+- **Log perubahan harga** — setiap perubahan tercatat; bila `Persetujuan harga` aktif, perubahan Admin menunggu persetujuan Owner.
+- **Order** — resi otomatis (format dapat diatur, default `EXP-{YYYY}-{NNNNN}`), harga terisi otomatis dari tabel harga, riwayat status
+  (Baru → Dijemput → Dikirim → Tiba → Selesai / Batal).
+- **Piutang PAD** — Belum Ditagih / Ditagih / Lunas, overdue dihitung otomatis dari jatuh tempo.
+- **Cetak PDF** — resi, surat jalan, invoice.
+- **RBAC** — `ekspedisi.manage` (Admin, Superadmin) dan `ekspedisi.approve` (Superadmin = Owner).
+
+Di mode demo, data contoh (4 customer, 4 rute, 7 order, piutang termasuk overdue, 1 usulan harga pending) dibuat oleh
+`npm run demo:seed`. Di luar lingkup fase 1: portal customer, notifikasi WA, tracking driver, laporan keuangan.

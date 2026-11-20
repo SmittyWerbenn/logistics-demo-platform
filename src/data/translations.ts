@@ -227,7 +227,7 @@ const id: Translations = {
     closeMenu: "Tutup menu navigasi",
   },
   footer: {
-    tagline: "GMS Logistics",
+    tagline: "Sinartrans Logistics",
     description:
       "Perusahaan jasa logistik dan pengiriman barang antar kota, didukung sistem digital agar proses layanan lebih transparan dan efisien.",
     navHeading: "Navigasi",
@@ -236,14 +236,14 @@ const id: Translations = {
     contactLink: "Hubungi Kami",
     contactTextAfter: "untuk kontak tim customer service kami.",
     adminPortal: "Portal Admin",
-    copyright: "PT Gangsar Mitra Suatama · Sistem Tracking & Resi Digital",
+    copyright: "PT Sinartrans Logistics · Sistem Tracking & Resi Digital",
   },
   home: {
     heroBadge: "Mitra Logistik Terpadu",
     heroTitleA: "Solusi Pengiriman Barang yang Rapi, Terkoordinasi, dan",
     heroTitleHighlight: "Bisa Diandalkan",
     heroDesc:
-      "PT Gangsar Mitra Suatama menghadirkan layanan logistik antar kota yang dikelola secara profesional oleh tim operasional kami sendiri, didukung sistem digital agar setiap proses berjalan konsisten dan terdokumentasi.",
+      "PT Sinartrans Logistics menghadirkan layanan logistik antar kota yang dikelola secara profesional oleh tim operasional kami sendiri, didukung sistem digital agar setiap proses berjalan konsisten dan terdokumentasi.",
     heroImageAlt: "Serah terima paket antara kurir dan penerima",
     ctaContact: "Hubungi Kami",
     ctaCheckPrice: "Lacak Paket",
@@ -252,7 +252,7 @@ const id: Translations = {
     coverageSuffix: "kota di Indonesia",
     aboutHeading: "Tentang Kami",
     aboutP1:
-      "PT Gangsar Mitra Suatama adalah perusahaan jasa logistik dan pengiriman barang yang melayani rute antar kota di Indonesia. Kami hadir untuk menjawab kebutuhan bisnis dan individu akan layanan pengiriman yang terkoordinasi rapi, dengan proses kerja yang jelas di setiap tahapnya.",
+      "PT Sinartrans Logistics adalah perusahaan jasa logistik dan pengiriman barang yang melayani rute antar kota di Indonesia. Kami hadir untuk menjawab kebutuhan bisnis dan individu akan layanan pengiriman yang terkoordinasi rapi, dengan proses kerja yang jelas di setiap tahapnya.",
     aboutP2:
       "Operasional kami dijalankan oleh tim internal yang menangani langsung setiap pengiriman - mulai dari penerimaan barang, koordinasi armada, hingga serah terima ke penerima - didukung sistem digital agar prosesnya konsisten dan terdokumentasi dengan baik. Kami berkomitmen menghadirkan layanan pengiriman yang transparan dan mudah dipantau, sehingga customer tidak perlu lagi menghubungi tim secara manual untuk mengetahui posisi barangnya.",
     servicesHeading: "Layanan Kami",
@@ -350,7 +350,7 @@ const id: Translations = {
   ],
   about: {
     title: "Tentang Kami",
-    p1: "PT Gangsar Mitra Suatama adalah perusahaan jasa logistik dan pengiriman barang yang melayani rute antar kota di Indonesia. Kami berkomitmen menghadirkan layanan pengiriman yang transparan dan mudah dipantau, sehingga customer tidak perlu lagi menghubungi tim secara manual untuk mengetahui posisi barangnya.",
+    p1: "PT Sinartrans Logistics adalah perusahaan jasa logistik dan pengiriman barang yang melayani rute antar kota di Indonesia. Kami berkomitmen menghadirkan layanan pengiriman yang transparan dan mudah dipantau, sehingga customer tidak perlu lagi menghubungi tim secara manual untuk mengetahui posisi barangnya.",
     p2: "Melalui Sistem Tracking & Resi Digital, setiap pengiriman kini memiliki nomor resi (AWB) unik yang dapat dilacak kapan saja - lengkap dengan status, lokasi, foto dokumentasi, informasi unit truck yang membawa barang, hingga bukti serah terima (Proof of Delivery) saat barang sampai di tangan penerima.",
   },
   contact: {
@@ -371,7 +371,7 @@ const id: Translations = {
     heroTitleGold: "Pengiriman Anda",
     heroDesc:
       "Masukkan nomor AWB (resi) yang tertera pada email atau resi fisik Anda untuk melihat status pengiriman secara real-time.",
-    placeholder: "Contoh: G260911001",
+    placeholder: "Contoh: SNT261105001",
     submitButton: "Lacak Sekarang",
     notFound: "Nomor AWB tidak ditemukan. Periksa kembali nomor resi Anda.",
     scanButton: "Scan Barcode / QR Code",
@@ -416,7 +416,7 @@ const id: Translations = {
       "AWB ini pernah menggunakan unit truck lain di perjalanan. Lihat detail transfer unit pada riwayat perjalanan di bawah.",
     noTruckAssigned: "Belum ada unit truck ditugaskan pada tahap ini.",
     journeyHeading: "Perjalanan Pengiriman",
-    helpText: "Butuh bantuan? Hubungi tim customer service PT Gangsar Mitra Suatama dengan menyertakan nomor AWB",
+    helpText: "Butuh bantuan? Hubungi tim customer service PT Sinartrans Logistics dengan menyertakan nomor AWB",
   },
   cekOngkir: {
     title: "Cek Ongkir",
@@ -521,7 +521,7 @@ const en: Translations = {
     closeMenu: "Close navigation menu",
   },
   footer: {
-    tagline: "GMS Logistics",
+    tagline: "Sinartrans Logistics",
     description:
       "A logistics and intercity delivery company, supported by a digital system for more transparent and efficient service.",
     navHeading: "Navigation",
@@ -530,14 +530,14 @@ const en: Translations = {
     contactLink: "Contact Us",
     contactTextAfter: "page to reach our customer service team.",
     adminPortal: "Admin Portal",
-    copyright: "PT Gangsar Mitra Suatama · Digital Tracking & Receipt System",
+    copyright: "PT Sinartrans Logistics · Digital Tracking & Receipt System",
   },
   home: {
     heroBadge: "Integrated Logistics Partner",
     heroTitleA: "A Shipping Solution That's Organized, Coordinated, and",
     heroTitleHighlight: "Reliable",
     heroDesc:
-      "PT Gangsar Mitra Suatama delivers intercity logistics services professionally managed by our own operations team, supported by a digital system so every process stays consistent and documented.",
+      "PT Sinartrans Logistics delivers intercity logistics services professionally managed by our own operations team, supported by a digital system so every process stays consistent and documented.",
     heroImageAlt: "Handoff of a package between a courier and a recipient",
     ctaContact: "Contact Us",
     ctaCheckPrice: "Track Package",
@@ -546,7 +546,7 @@ const en: Translations = {
     coverageSuffix: "cities in Indonesia",
     aboutHeading: "About Us",
     aboutP1:
-      "PT Gangsar Mitra Suatama is a logistics and freight company serving intercity routes across Indonesia. We're here to meet the needs of businesses and individuals for well-coordinated delivery services, with a clear process at every stage.",
+      "PT Sinartrans Logistics is a logistics and freight company serving intercity routes across Indonesia. We're here to meet the needs of businesses and individuals for well-coordinated delivery services, with a clear process at every stage.",
     aboutP2:
       "Our operations are run by an internal team that directly handles every shipment - from receiving goods, coordinating the fleet, to handover with the recipient - supported by a digital system so the process stays consistent and well documented. We're committed to delivering transparent, easy-to-track service so customers no longer need to contact our team manually to find out where their shipment is.",
     servicesHeading: "Our Services",
@@ -644,7 +644,7 @@ const en: Translations = {
   ],
   about: {
     title: "About Us",
-    p1: "PT Gangsar Mitra Suatama is a logistics and freight company serving intercity routes across Indonesia. We're committed to delivering transparent, easy-to-track service so customers no longer need to contact our team manually to find out where their shipment is.",
+    p1: "PT Sinartrans Logistics is a logistics and freight company serving intercity routes across Indonesia. We're committed to delivering transparent, easy-to-track service so customers no longer need to contact our team manually to find out where their shipment is.",
     p2: "Through the Digital Tracking & Receipt System, every shipment now has a unique receipt number (AWB) that can be tracked anytime - complete with status, location, documentation photos, information on the truck unit carrying the goods, and Proof of Delivery once the goods reach the recipient.",
   },
   contact: {
@@ -664,7 +664,7 @@ const en: Translations = {
     heroTitle: "Track Your",
     heroTitleGold: "Shipment",
     heroDesc: "Enter the AWB (receipt) number shown on your email or physical receipt to see the delivery status in real time.",
-    placeholder: "e.g. G260911001",
+    placeholder: "e.g. SNT261105001",
     submitButton: "Track Now",
     notFound: "AWB number not found. Please double-check your receipt number.",
     scanButton: "Scan Barcode / QR Code",
@@ -708,7 +708,7 @@ const en: Translations = {
     transferNote: "This AWB has used another truck unit along the way. See the transfer details in the journey history below.",
     noTruckAssigned: "No truck unit has been assigned at this stage yet.",
     journeyHeading: "Delivery Journey",
-    helpText: "Need help? Contact PT Gangsar Mitra Suatama's customer service and include this AWB number",
+    helpText: "Need help? Contact PT Sinartrans Logistics's customer service and include this AWB number",
   },
   cekOngkir: {
     title: "Check Shipping Cost",

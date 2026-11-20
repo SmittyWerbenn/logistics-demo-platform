@@ -62,7 +62,7 @@ function fmtIso(iso: string): string {
   return formatTanggalJam(w.tanggal, w.jam);
 }
 
-/** Admin GMS / Superadmin: review "Request Pemulihan Order" from Clients. The
+/** Admin Sinartrans / Superadmin: review "Request Pemulihan Order" from Clients. The
  * decision (and every rule behind it) is enforced by the API; this page only
  * drives it. Waiting requests are listed first. */
 export default function RecoveryRequests() {

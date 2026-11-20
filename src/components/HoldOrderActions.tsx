@@ -162,7 +162,7 @@ export function HoldInfo({ shipment }: { shipment: Pick<Shipment, "status" | "ho
   );
 }
 
-const roleLabel = (r: string) => (r === "Admin" ? "GMS-Admin" : r);
+const roleLabel = (r: string) => (r === "Admin" ? "Sinartrans-Admin" : r);
 
 function Field({ k, v }: { k: string; v: string }) {
   return (

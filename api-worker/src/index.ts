@@ -4,6 +4,7 @@ import { ok, errorResponse, Errors } from "./http";
 import { loadUserFromRequest } from "./authMiddleware";
 import { registerAuthRoutes } from "./routes/auth";
 import { registerUserRoutes } from "./routes/users";
+import { registerEkspedisiRoutes } from "./routes/ekspedisi";
 import { registerMitraRoutes } from "./routes/mitras";
 import { registerLayananRoutes } from "./routes/layanan";
 import { registerLocationRoutes } from "./routes/locations";
@@ -56,6 +57,7 @@ registerHoldRoutes(router);
 registerRatePublishRoutes(router);
 registerClientLogoRoutes(router);
 registerDailyReportRoutes(router);
+registerEkspedisiRoutes(router);
 
 router.get("/api/health", async () => ok({ status: "ok", time: new Date().toISOString() }));
 

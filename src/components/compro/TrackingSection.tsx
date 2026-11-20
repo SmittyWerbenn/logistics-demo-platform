@@ -43,13 +43,13 @@ export function TrackingForm() {
           aria-invalid={error !== ""}
           aria-describedby={error ? "compro-awb-err" : undefined}
           autoComplete="off"
-          className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base text-gms-ink placeholder:text-slate-400 focus:border-gms-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gms-gold"
+          className="min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-base text-snt-ink placeholder:text-slate-400 focus:border-snt-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-snt-accent"
         />
         {gate.needsCaptcha && <Captcha ref={gate.captchaRef} idPrefix="home-trk" compact value={gate.code} onChange={gate.setCode} error={gate.error} />}
         <button
           type="submit"
           disabled={busy}
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gms-gold px-6 font-bold text-gms-deep transition-colors hover:bg-gms-bright disabled:opacity-70"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-snt-accent px-6 font-bold text-snt-deep transition-colors hover:bg-snt-bright disabled:opacity-70"
         >
           {busy ? <Loader2 size={18} className="animate-spin" aria-hidden /> : <Search size={18} aria-hidden />}
           {busy ? l(C.tracking.checking) : l(C.tracking.button)}
@@ -67,14 +67,14 @@ export function TrackingForm() {
 export function TrackingSection() {
   const l = useL();
   return (
-    <section id="tracking" className="relative scroll-mt-16 overflow-hidden bg-gms-corp py-20 sm:py-24">
-      <div aria-hidden className="absolute -right-16 top-0 h-full w-32 skew-x-[-18deg] bg-gms-gold/15" />
+    <section id="tracking" className="relative scroll-mt-16 overflow-hidden bg-snt-corp py-20 sm:py-24">
+      <div aria-hidden className="absolute -right-16 top-0 h-full w-32 skew-x-[-18deg] bg-snt-accent/15" />
       <Container className="relative">
         <SectionHeader dark title={l(C.tracking.title)} sub={l(C.tracking.sub)} />
         <Reveal><TrackingForm /></Reveal>
         <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold text-blue-100/85">
           {C.tracking.feats.map((f) => (
-            <li key={f.en} className="flex items-center gap-2"><CheckCircle2 size={16} className="text-gms-gold" aria-hidden />{l(f)}</li>
+            <li key={f.en} className="flex items-center gap-2"><CheckCircle2 size={16} className="text-snt-accent" aria-hidden />{l(f)}</li>
           ))}
         </ul>
       </Container>

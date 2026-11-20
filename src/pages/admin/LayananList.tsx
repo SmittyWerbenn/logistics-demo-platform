@@ -28,7 +28,7 @@ type StatusFilter = "semua" | "aktif" | "nonaktif";
 
 export default function LayananList() {
   const { profile } = useAuth();
-  /** Superadmin + Admin (GMS-Admin) maintain the master data; Viewer + Client
+  /** Superadmin + Admin (Sinartrans-Admin) maintain the master data; Viewer + Client
    * (Admin Client) may open this page but only VIEW - no Tambah button and no
    * Aksi column. Enforced again server-side with `settings.manage`. */
   const canManage = profile?.role === "Superadmin" || profile?.role === "Admin";

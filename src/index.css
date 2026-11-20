@@ -1,46 +1,48 @@
 @import "tailwindcss";
 
-/* Brand palette derived from the GMS Logistics logo (navy + gold) -
-   overrides Tailwind's default blue and amber scales so every existing
-   utility class using those colors picks up the brand colors automatically. */
+/* Brand palette extracted from the Sinartrans Logistics logo
+   (navy #253B6D + red #EE2229). Overriding Tailwind's blue/red scales means
+   every existing utility class using those colors picks up the brand colors
+   automatically. Amber intentionally falls back to Tailwind's default scale
+   so warning/pending states stay clearly distinct from the brand red. */
 @theme {
-  --color-blue-50: #d6e7fb;
-  --color-blue-100: #b1d0f5;
-  --color-blue-200: #7faee6;
-  --color-blue-300: #4984cc;
-  --color-blue-400: #1b5ead;
-  --color-blue-500: #01428f;
-  --color-blue-600: #013675;
-  --color-blue-700: #012b5e;
-  --color-blue-800: #04244a;
-  --color-blue-900: #061d38;
-  --color-blue-950: #061324;
+  --color-blue-50: #eef2fa;
+  --color-blue-100: #dee6f5;
+  --color-blue-200: #c6d1e8;
+  --color-blue-300: #9baed6;
+  --color-blue-400: #6580bb;
+  --color-blue-500: #4761a0;
+  --color-blue-600: #34497f;
+  --color-blue-700: #253b6d;
+  --color-blue-800: #1c2e56;
+  --color-blue-900: #152340;
+  --color-blue-950: #0c1528;
 
-  --color-amber-50: #faedd6;
-  --color-amber-100: #f0d7aa;
-  --color-amber-200: #deb872;
-  --color-amber-300: #c79840;
-  --color-amber-400: #b27d1a;
-  --color-amber-500: #996505;
-  --color-amber-600: #805404;
-  --color-amber-700: #664403;
-  --color-amber-800: #4f3606;
-  --color-amber-900: #3d2b08;
-  --color-amber-950: #291d07;
+  --color-red-50: #fef2f2;
+  --color-red-100: #fde4e5;
+  --color-red-200: #fac9cb;
+  --color-red-300: #f59b9f;
+  --color-red-400: #f26b6b;
+  --color-red-500: #ee2229;
+  --color-red-600: #d31c22;
+  --color-red-700: #b0161c;
+  --color-red-800: #8f1217;
+  --color-red-900: #7a1114;
+  --color-red-950: #450708;
 }
 
-/* Company Profile (COMPRO) brand tokens */
+/* Company Profile (COMPRO) brand tokens - Sinartrans navy + red */
 @theme {
-  --color-gms-deep: #071b41;
-  --color-gms-corp: #0b2553;
-  --color-gms-navy: #102f63;
-  --color-gms-gold: #d4a72c;
-  --color-gms-bright: #e5b83b;
-  --color-gms-light: #f0c75e;
-  --color-gms-soft: #f7e9b5;
-  --color-gms-sky: #eaf0f8;
-  --color-gms-mist: #f4f7fc;
-  --color-gms-ink: #14213d;
+  --color-snt-deep: #0b1733;
+  --color-snt-corp: #152747;
+  --color-snt-navy: #253b6d;
+  --color-snt-accent: #ee2229;
+  --color-snt-bright: #f2544b;
+  --color-snt-light: #fbc0be;
+  --color-snt-soft: #fdeaea;
+  --color-snt-sky: #e6ecf8;
+  --color-snt-mist: #f5f7fb;
+  --color-snt-ink: #101a2e;
   --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 }
 
@@ -195,7 +197,7 @@ body {
 .compro input:focus-visible,
 .compro select:focus-visible,
 .compro textarea:focus-visible {
-  outline: 2px solid #d4a72c;
+  outline: 2px solid #ee2229;
   outline-offset: 2px;
 }
 .no-scrollbar::-webkit-scrollbar { display: none; }

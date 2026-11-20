@@ -46,4 +46,4 @@ export function coverageByIsland(): { island: string; cities: string[] }[] {
   return [...map.entries()].map(([island, cities]) => ({ island, cities }));
 }
 
-export const SITE_URL = "https://gms-logistics.id";
+export const SITE_URL = "https://sinartranslogistics.co.id";

@@ -19,14 +19,14 @@ export const COMPRO_IMAGES = {
   // About section
   about: {
     url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop&q=90",
-    alt: "Tim operasional GMS Logistics bekerja di warehouse logistics modern",
+    alt: "Tim operasional Sinartrans Logistics bekerja di warehouse logistics modern",
   },
 
   // Journey timeline (6 steps)
   journey: {
     order: {
       url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop&q=90",
-      alt: "Admin GMS Logistics memproses order pengiriman di komputer",
+      alt: "Admin Sinartrans Logistics memproses order pengiriman di komputer",
     },
     pickup: {
       url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&q=90",

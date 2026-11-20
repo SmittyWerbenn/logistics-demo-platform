@@ -1,10 +1,10 @@
 /**
- * Canonical public-facing URLs for the GMS Logistics apps.
+ * Canonical public-facing URLs for the Sinartrans Logistics apps.
  *
  * The three portals are served from three origins now:
- *   - public site / tracking / cek ongkir  -> https://gms-logistics.id
- *   - admin dashboard                      -> https://admin.gms-logistics.id
- *   - driver portal                        -> https://driver.gms-logistics.id
+ *   - public site / tracking / cek ongkir  -> https://sinartranslogistics.co.id
+ *   - admin dashboard                      -> https://admin.sinartranslogistics.co.id
+ *   - driver portal                        -> https://driver.sinartranslogistics.co.id
  *
  * The API and email Workers keep their own (workers.dev) URLs, configured in
  * apiClient.ts / sendEmail.ts - those are intentionally NOT here and must not
@@ -37,15 +37,15 @@ export type Portal = "public" | "admin" | "driver" | null;
 export function detectPortal(): Portal {
   if (typeof window === "undefined") return null;
   const host = window.location.hostname;
-  if (host === "admin.gms-logistics.id") return "admin";
-  if (host === "driver.gms-logistics.id") return "driver";
-  if (host === "gms-logistics.id" || host === "www.gms-logistics.id") return "public";
+  if (host === "admin.sinartranslogistics.co.id") return "admin";
+  if (host === "driver.sinartranslogistics.co.id") return "driver";
+  if (host === "sinartranslogistics.co.id" || host === "www.sinartranslogistics.co.id") return "public";
   return null;
 }
 
 /**
  * In-app route paths for a portal. On the portal's own subdomain the routes
- * live at the root (e.g. https://admin.gms-logistics.id/pengiriman), while on
+ * live at the root (e.g. https://admin.sinartranslogistics.co.id/pengiriman), while on
  * localhost and legacy hosts they stay namespaced (/admin/pengiriman) so they
  * don't collide with the public routes in the single shared bundle.
  */

@@ -31,7 +31,7 @@ const DEFAULTS: Record<Key, string> = {
   // The public Contact page (/kontak) used to hardcode these. The defaults are
   // exactly that text, so the page looks the same until a Superadmin edits it.
   contact_phone: "021-2200-8899",
-  contact_email: "cs@gms-logistics.co.id",
+  contact_email: "cs@sinartranslogistics.co.id",
   contact_hours: "Senin - Sabtu, 08.00 - 18.00 WIB",
   // The company address shown on the Compro ("Head Office"): ONE address, editable under Pengaturan.
   office_head: "Surabaya",
@@ -131,7 +131,7 @@ export function registerSettingsRoutes(router: Router) {
     const headOffice = readOffice("headOffice", "Alamat Head Office");
 
     // Nomor Bantuan and the Contact page details are Superadmin-only - they're
-    // meant to stay stable across an Admin/GMS-Admin turnover, so a GMS-Admin
+    // meant to stay stable across an Admin/Sinartrans-Admin turnover, so a Sinartrans-Admin
     // account (even with the general settings.manage permission) can't change
     // them. Enforced here, not just by hiding the inputs.
     const touchesContact =
